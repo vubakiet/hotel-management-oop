@@ -1,5 +1,6 @@
 package MainCore;
 
+import HandleList.ListEmployee;
 import HandleList.ListRoomVIP;
 
 import java.util.Scanner;
@@ -44,6 +45,7 @@ public class Menu {
                     break;
                 case 3:
                     System.out.println("Ban chon danh sach nhan vien");
+                    listEmployee();
                     break;
                 case 4:
                     System.out.println("Ban chon danh sach khach hang");
@@ -76,7 +78,7 @@ public class Menu {
             System.out.println("+---------------------------------------------+");
 
             do {
-                System.out.println("Nhap lua chon: ");
+                System.out.print("Nhap lua chon: ");
                 selectTemp = sc.nextLine();
                 String s = "^[0-9]{1}";
                 Pattern pattern = Pattern.compile(s);
@@ -102,7 +104,7 @@ public class Menu {
                         System.out.println("+------------------------------------------+");
 
                         do {
-                            System.out.println("Nhap lua chon: ");
+                            System.out.print("Nhap lua chon: ");
                             selectTempRV = sc.nextLine();
                             String s = "^[0-9]{1}";
                             Pattern pattern = Pattern.compile(s);
@@ -151,5 +153,62 @@ public class Menu {
 
         } while (select != 0);
 
+    }
+
+    public void listEmployee() {
+        Matcher matcher;
+        String selectTemp;
+        int select;
+
+        do {
+            System.out.println("+---------------------------------------------+");
+            System.out.println("|              Danh sach nhan vien            |");
+            System.out.println("| -------------------=====--------------------|");
+            System.out.println("| 1. Them thong tin nhan vien                 |");
+            System.out.println("| 2. Sua thong tin nhan vien                  |");
+            System.out.println("| 3. Xoa thong tin nhan vien                  |");
+            System.out.println("| 4. Tim kiem thong tin nhan vien             |");
+            System.out.println("| 5. Xuat thong tin nhan vien                 |");
+            System.out.println("| 0. Tro ve                                   |");
+            System.out.println("+---------------------------------------------+");
+
+            do {
+                System.out.print("Nhap lua chon: ");
+                selectTemp = sc.nextLine();
+                String s = "^[0-9]{1}";
+                Pattern pattern = Pattern.compile(s);
+                matcher = pattern.matcher(selectTemp);
+            } while (!matcher.find());
+            select = Integer.parseInt(selectTemp);
+            ListEmployee listEmployee = new ListEmployee();
+            listEmployee.readListEmployee();
+
+            switch (select) {
+                case 1:
+                    System.out.println("Ban chon them thong tin nhan vien");
+                    listEmployee.add();
+                    break;
+                case 2:
+                    System.out.println("Ban chon sua thong tin nhan vien");
+                    break;
+                case 3:
+                    System.out.println("Ban chon xoa thong tin nhan vien");
+                    break;
+                case 4:
+                    System.out.println("Ban chon tim kiem thong tin nhan vien");
+                    break;
+                case 5:
+                    System.out.println("Ban chon xuat thong tin nhan vien");
+                    listEmployee.display();
+                    break;
+                case 0:
+                    System.out.println("Tro ve");
+                    break;
+                default:
+                    System.out.println("Lua chon loi! Vui long chon lai");
+                    break;
+            }
+
+        } while (select != 0);
     }
 }
