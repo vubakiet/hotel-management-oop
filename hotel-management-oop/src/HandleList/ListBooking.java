@@ -188,7 +188,27 @@ public class ListBooking implements TypeList {
             System.out.print("Nhap ma don dat phong: ");
             temp = sc.nextLine();
             String s = "^HD[0-9]{2}$";
-            
+            Pattern pattern = Pattern.compile(s);
+            matcher = pattern.matcher(temp);
+        }while(!matcher.find());
+
+        boolean check = false;
+        for(int i = 0; i< n; i++){
+            String key = listBooking[i].getBookingId();
+            if(key.contentEquals(temp)){
+                check = true;
+                for(int j = i; j < n; j++){
+                    listBooking[j] = listBooking[j+1];
+                }
+                n--;
+                listBooking = Arrays.copyOf(listBooking, n);
+            }
+        }
+        if(check){
+            updateBooking();
+        }
+        else{
+            System.out.println("Khong tin thay ma don dat phong");
         }
     }
 
