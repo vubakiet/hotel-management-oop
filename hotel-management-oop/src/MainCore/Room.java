@@ -15,6 +15,11 @@ public class Room {
         this.roomDetails = roomDetails;
     }
 
+    public String getRoomId(){
+        return "";
+    }
+
+
     public String getName() {
         return name;
     }
