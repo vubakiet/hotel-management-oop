@@ -184,10 +184,11 @@ public class ListBooking implements TypeList {
     public void remove() {
         Matcher matcher;
         String temp;
+        display();
         do {
             System.out.print("Nhap ma don dat phong: ");
             temp = sc.nextLine();
-            String s = "^HD[0-9]{2}$";
+            String s = "^BK[0-9]{2}$";
             Pattern pattern = Pattern.compile(s);
             matcher = pattern.matcher(temp);
         }while(!matcher.find());
@@ -197,7 +198,7 @@ public class ListBooking implements TypeList {
             String key = listBooking[i].getBookingId();
             if(key.contentEquals(temp)){
                 check = true;
-                for(int j = i; j < n; j++){
+                for(int j = i; j < n-1; j++){
                     listBooking[j] = listBooking[j+1];
                 }
                 n--;
