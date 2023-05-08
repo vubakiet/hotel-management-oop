@@ -1,2 +1,0 @@
-SD101;Dieu Thuyen;day du, view city, 30m2;219000;1199000;1099000
-SD201;Quach Vu;Full option;59000;509000;469000
