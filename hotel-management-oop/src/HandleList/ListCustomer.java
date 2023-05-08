@@ -1,6 +1,7 @@
 package HandleList;
 
 import AbstractCore.TypeList;
+import BaseConstructor.Booking;
 import BaseConstructor.Customer;
 import OverrideCore.CustomerVIP;
 import OverrideCore.CustomerNormal;
@@ -132,10 +133,10 @@ public class ListCustomer implements TypeList{
 
         do{
             System.out.println("+----------------------------------------------+");
-            System.out.println("|                Them Khach hang               |");
+            System.out.println("|                Loai Khach hang               |");
             System.out.println("| -------------------=====---------------------|");
-            System.out.println("| 1. Them khach hang                           |");
-            System.out.println("| 2. Them khach VIP                            |");
+            System.out.println("| 1. Khach hang Normal                         |");
+            System.out.println("| 2. Khach hang VIP                            |");
             System.out.println("| 0. Tro ve                                    |");
             System.out.println("+----------------------------------------------+");
 
@@ -168,12 +169,94 @@ public class ListCustomer implements TypeList{
     }
     @Override
     public void edit(){
+        Matcher matcher;
+        String temp, selectTemp;
+        int select;
+        display();
+        do {
+            System.out.print("Nhap ma khach hang can thay doi: ");
+            temp = sc.nextLine();
+            String s = "^KH[0-9]{2}$";
+            Pattern pattern = Pattern.compile(s);
+            matcher = pattern.matcher(temp);
+        }while (!matcher.find());
 
+        boolean check = false;
+        for(int i = 0; i < n; i++){
+            String key = listCustomer[i].getCustomerld();
+            if(key.contentEquals(temp)){
+                check = true;
+                do{
+                    System.out.println("+----------------------------------------------+");
+                    System.out.println("|                Loai Khach hang               |");
+                    System.out.println("| -------------------=====---------------------|");
+                    System.out.println("| 1. Khach hang Normal                         |");
+                    System.out.println("| 2. Khach hang VIP                            |");
+                    System.out.println("| 0. Tro ve                                    |");
+                    System.out.println("+----------------------------------------------+");
+
+                    do{
+                        System.out.print("Nhap lua chon: ");
+                        selectTemp = sc.nextLine();
+                        String s = "^[0-9]{1}";
+                        Pattern pattern = Pattern.compile(s);
+                        matcher = pattern.matcher(selectTemp);
+                    }while(!matcher.find());
+                    select = Integer.parseInt(selectTemp);
+
+                    switch(select){
+                        case 1:
+                            Customer cus1 = new CustomerNormal();
+                            System.out.println("Nhap thong tin khach hang!");
+                            cus1.inputForCustomer();
+                            cus1.typeCustomer();
+                            listCustomer[i] = cus1;
+                            break;
+                        case 2:
+                            Customer cus2 = new CustomerVIP();
+                            System.out.println("Nhap thong tin khach hang!");
+                            cus2.inputForCustomer();
+                            cus2.typeCustomer();
+                            listCustomer[i] = cus2;
+                            break;
+                        case 0:
+                            break;
+                    }
+                }while( select !=0);
+            }
+        }
+        if(check) updateListCustomer();
+        else System.out.println("Khong tim thay ma khach hang");
     }
+
     @Override
     public void remove(){
-
+        Matcher matcher;
+        String temp;
+        display();
+        do {
+            System.out.print("Nhap ma khach hang: ");
+            temp = sc.nextLine();
+            String s = "^KH[0-9]{2}$";
+            Pattern pattern = Pattern.compile(s);
+            matcher = pattern.matcher(temp);
+        }while(!matcher.find());
+        boolean check = false;
+        for(int i = 0; i< n; i++){
+            String key = listCustomer[i].getCustomerld();
+            if(key.contentEquals(temp)) {
+                check = true;
+                for (int j = i; j < n - 1; j++) {
+                    listCustomer[j] = listCustomer[j + 1];
+                }
+                n--;
+                listCustomer = Arrays.copyOf(listCustomer, n);
+            }
+        }
+        if(check) updateListCustomer();
+        else System.out.println("Khong tin thay ma khach hang!");
     }
+
     @Override
     public void find(){
 

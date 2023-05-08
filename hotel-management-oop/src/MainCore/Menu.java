@@ -258,9 +258,11 @@ public class Menu {
                     break;
                 case 2:
                     System.out.println("Ban chon sua thong tin nhan vien");
+                    listEmployee.edit();
                     break;
                 case 3:
                     System.out.println("Ban chon xoa thong tin nhan vien");
+                    listEmployee.remove();
                     break;
                 case 4:
                     System.out.println("Ban chon tim kiem thong tin nhan vien");
@@ -314,9 +316,11 @@ public class Menu {
                     break;
                 case 2:
                     System.out.println("Ban chon sua thong tin khach hang");
+                    listCustomer.edit();
                     break;
                 case 3:
                     System.out.println("Ban chon xoa thong tin khach hang");
+                    listCustomer.remove();
                     break;
                 case 4:
                     System.out.println("Ban chon tim kiem thong tin khach hang");

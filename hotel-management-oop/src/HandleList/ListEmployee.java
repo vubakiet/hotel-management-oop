@@ -1,6 +1,7 @@
 package HandleList;
 
 import AbstractCore.TypeList;
+import BaseConstructor.Booking;
 import BaseConstructor.Employee;
 import OverrideCore.Cleanner;
 import OverrideCore.Manager;
@@ -188,14 +189,110 @@ public class ListEmployee implements TypeList {
 
     @Override
     public void edit() {
+        Matcher matcher;
+        String temp, selectTemp;
+        int select;
+        display();
+        do {
+            System.out.print("Nhap ma nhan vien can thay doi: ");
+            temp = sc.nextLine();
+            String s = "^NV[0-9]{2}$";
+            Pattern pattern = Pattern.compile(s);
+            matcher = pattern.matcher(temp);
+        } while (!matcher.find());
+        boolean check = false;
+        for (int i = 0; i < n; i++) {
+            String key = listEmployee[i].getEmployeeId();
+            if (key.contentEquals(temp)) {
+                check = true;
+                do {
+                    System.out.println("+---------------------------------------------+");
+                    System.out.println("|                Loai nhan vien               |");
+                    System.out.println("| -------------------=====--------------------|");
+                    System.out.println("| 1. Nhan vien Tiep tan                       |");
+                    System.out.println("| 2. Nhan vien Lao cong                       |");
+                    System.out.println("| 3. Nhan vien Quan ly                        |");
+                    System.out.println("| 0. Tro ve                                   |");
+                    System.out.println("+---------------------------------------------+");
 
+                    do {
+                        System.out.print("Nhap lua chon: ");
+                        selectTemp = sc.nextLine();
+                        String s = "^[0-9]{1}";
+                        Pattern pattern = Pattern.compile(s);
+                        matcher = pattern.matcher(selectTemp);
+                    } while (!matcher.find());
+                    select = Integer.parseInt(selectTemp);
+
+                    switch (select) {
+                        case 1:
+                            Employee emp1 = new Receptionist();
+                            System.out.println("Nhap thong tin nhan vien!");
+                            emp1.inputForEmployee();
+                            emp1.position();
+                            emp1.salary();
+                            listEmployee[i] = emp1;
+                            break;
+                        case 2:
+                            Employee emp2 = new Cleanner();
+                            System.out.println("Nhap thong tin nhan vien!");
+                            emp2.inputForEmployee();
+                            emp2.position();
+                            emp2.salary();
+                            listEmployee[i] = emp2;
+                            break;
+                        case 3:
+                            Employee emp3 = new Manager();
+                            System.out.println("Nhap thong tin nhan vien!");
+                            emp3.inputForEmployee();
+                            emp3.position();
+                            emp3.salary();
+                            listEmployee[i] = emp3;
+                            break;
+                        case 0:
+                            System.out.println("Tro ve");
+                            break;
+                        default:
+                            System.out.println("Lua chon loi! Vui long chon lai");
+                            break;
+                    }
+
+                } while (select != 0);
+            }
+        }
+        if(check) updateListEmployee();
+        else System.out.println("Khong tim thay ma khach hang");
     }
 
     @Override
     public void remove() {
+        Matcher matcher;
+        String temp;
+        display();
+        do {
+            System.out.print("Nhap ma khach hang: ");
+            temp = sc.nextLine();
+            String s = "^NV[0-9]{2}$";
+            Pattern pattern = Pattern.compile(s);
+            matcher = pattern.matcher(temp);
+        }while(!matcher.find());
+        boolean check = false;
+        for(int i = 0; i< n; i++)
 
+        {
+            String key = listEmployee[i].getEmployeeId();
+            if (key.contentEquals(temp)) {
+                check = true;
+                for (int j = i; j < n - 1; j++) {
+                    listEmployee[j] = listEmployee[j + 1];
+                }
+                n--;
+                listEmployee = Arrays.copyOf(listEmployee, n);
+            }
+        }
+        if(check) updateListEmployee();
+        else System.out.println("Khong tin thay ma khach hang!");
     }
-
     @Override
     public void find() {
 

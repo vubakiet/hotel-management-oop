@@ -1,3 +1,2 @@
 NV01;Vu Ba Kiet;135B Tay Lan;21;0976398402;Quan ly;20.000.000 vnd
 NV02;Tran Thanh;TPHCM;50;0862729369;Tiep tan;15.000.000 vnd
-NV03;Ngo Pham;TQ;50;0976398400;Lao cong;10.000.000 vnd
