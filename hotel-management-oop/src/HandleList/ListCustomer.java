@@ -30,7 +30,7 @@ public class ListCustomer implements TypeList{
     }
     
     public static void printLine(){
-        for (int i = 0;i < 118; i++){
+        for (int i = 0;i < 119; i++){
             System.out.print("=");
         }
     }
@@ -152,13 +152,13 @@ public class ListCustomer implements TypeList{
                 case 1:
                     Customer cus1 = new CustomerNormal();
                     cus1.inputForCustomer();
-                    cus1.getTypeCustomer();
+                    cus1.typeCustomer();
                     addToListCustomer(cus1);
                     break;
                 case 2:
                     Customer cus2 = new CustomerVIP();
                     cus2.inputForCustomer();
-                    cus2.getTypeCustomer();
+                    cus2.typeCustomer();
                     addToListCustomer(cus2);
                     break;
                 case 0:
@@ -182,7 +182,7 @@ public class ListCustomer implements TypeList{
     public void display(){
         printLine();
         System.out.printf("\n|%-10s %-20s %-30s %-10s %-25s %-15s |\n",
-        "Ma KH", "Ho Ten", "Dia Chi", "Tuoi", "So Dien Thoai", "Phan Loai Khach");
+        " Ma KH", " Ho Ten", " Dia Chi", " Tuoi", " So Dien Thoai", " Phan Loai Khach");
         for (int i =0; i < n ;i++){
             listCustomer[i].output();
         }

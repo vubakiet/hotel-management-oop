@@ -73,7 +73,7 @@ public class Customer extends Person {
     }
     @Override
     public String toString(){
-        return String.format("| %-10s %-20s %-30s %-10s %-15s %-10s  |",
+        return String.format("| %-10s %-20s %-30s %-10s %-25s %-15s |",
         getCustomerld(), super.getName(), super.getAddress(), super.getAge(), super.getPhone(), getTypeCustomer());
     }
 
