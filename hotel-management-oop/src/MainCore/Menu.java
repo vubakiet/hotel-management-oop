@@ -1,5 +1,6 @@
 package MainCore;
 
+import HandleList.ListCustomer;
 import HandleList.ListEmployee;
 import HandleList.ListRoomVIP;
 
@@ -49,6 +50,7 @@ public class Menu {
                     break;
                 case 4:
                     System.out.println("Ban chon danh sach khach hang");
+                    listCustomer();
                     break;
 
                 case 0:
@@ -200,6 +202,63 @@ public class Menu {
                 case 5:
                     System.out.println("Ban chon xuat thong tin nhan vien");
                     listEmployee.display();
+                    break;
+                case 0:
+                    System.out.println("Tro ve");
+                    break;
+                default:
+                    System.out.println("Lua chon loi! Vui long chon lai");
+                    break;
+            }
+
+        } while (select != 0);
+    }
+
+    public void listCustomer() {
+        Matcher matcher;
+        String selectTemp;
+        int select;
+
+        do {
+            System.out.println("+---------------------------------------------+");
+            System.out.println("|              Danh sach Khach Hang           |");
+            System.out.println("| -------------------=====--------------------|");
+            System.out.println("| 1. Them thong tin khach hang                |");
+            System.out.println("| 2. Sua thong tin khach hang                 |");
+            System.out.println("| 3. Xoa thong tin khach hang                 |");
+            System.out.println("| 4. Tim kiem thong tin khach hang            |");
+            System.out.println("| 5. Xuat thong tin khach hang                |");
+            System.out.println("| 0. Tro ve                                   |");
+            System.out.println("+---------------------------------------------+");
+            
+            do {
+                System.out.print("Nhap lua chon: ");
+                selectTemp = sc.nextLine();
+                String check = "^[0-9]{1}";
+                Pattern pattern = Pattern.compile(check);
+                matcher = pattern.matcher(selectTemp);
+            } while (!matcher.find());
+            select = Integer.parseInt(selectTemp);
+            ListCustomer listCustomer = new ListCustomer();
+            listCustomer.readListCustomer();
+
+            switch (select) {
+                case 1:
+                    System.out.println("Ban chon them thong tin khach hang");
+                    listCustomer.add();
+                    break;
+                case 2:
+                    System.out.println("Ban chon sua thong tin khach hang");
+                    break;
+                case 3:
+                    System.out.println("Ban chon xoa thong tin khach hang");
+                    break;
+                case 4:
+                    System.out.println("Ban chon tim kiem thong tin khach hang");
+                    break;
+                case 5:
+                    System.out.println("Ban chon xuat thong tin khach hang");
+                    listCustomer.display();
                     break;
                 case 0:
                     System.out.println("Tro ve");
