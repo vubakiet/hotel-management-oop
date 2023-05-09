@@ -4,6 +4,7 @@ import HandleList.ListBooking;
 import HandleList.ListCustomer;
 import HandleList.ListEmployee;
 import HandleList.ListRoomVIP;
+import HandleList.ListRoomStandard;
 
 import java.util.Scanner;
 import java.util.regex.Matcher;
@@ -190,12 +191,15 @@ public class Menu {
                                 break;
                             case 2:
                                 System.out.println("Ban chon sua thong tin phong ");
+                                listRoomVIP.edit();
                                 break;
                             case 3:
                                 System.out.println("Ban chon xoa thong tin phong ");
+                                listRoomVIP.remove();
                                 break;
                             case 4:
                                 System.out.println("Ban chon tim kiem thong tin phong ");
+                                listRoomVIP.find();
                                 break;
                             case 5:
                                 System.out.println("Ban chon xuat thong tin phong ");
@@ -213,7 +217,60 @@ public class Menu {
                     } while (selectRV != 0);
                     break;
                 case 2:
-                    System.out.println("Hello");
+                    String selectTempSD;
+                    int selectSD;
+                    do {
+                        System.out.println("+------------------------------------------+");
+                        System.out.println("|       Danh sach phong StanDard           |");
+                        System.out.println("| -------------------=====-----------------|");
+                        System.out.println("| 1. Them thong tin phong                  |");
+                        System.out.println("| 2. Sua thong tin phong                   |");
+                        System.out.println("| 3. Xoa thong tin phong                   |");
+                        System.out.println("| 4. Tim kiem thong tin phong              |");
+                        System.out.println("| 5. Xuat danh sach phong                  |");
+                        System.out.println("| 0. Tro ve                                |");
+                        System.out.println("+------------------------------------------+");
+
+                        do {
+                            System.out.println("Nhap lua chon: ");
+                            selectTempSD = sc.nextLine();
+                            String s = "^[0-9]{1}";
+                            Pattern pattern = Pattern.compile(s);
+                            matcher = pattern.matcher(selectTempSD);
+                        } while (!matcher.find());
+                        selectSD = Integer.parseInt(selectTempSD);
+                        ListRoomStandard listRoomStandard = new ListRoomStandard();
+                        listRoomStandard.readListRoomStanDard();
+
+                        switch (selectSD) {
+                            case 1:
+                                System.out.println("Ban chon them thong tin phong ");
+                                listRoomStandard.add();
+                                break;
+                            case 2:
+                                System.out.println("Ban chon sua thong tin phong ");
+                                listRoomStandard.edit();
+                                break;
+                            case 3:
+                                System.out.println("Ban chon xoa thong tin phong ");
+                                listRoomStandard.remove();
+                                break;
+                            case 4:
+                                System.out.println("Ban chon tim kiem thong tin phong ");
+                                listRoomStandard.find();
+                                break;
+                            case 5:
+                                System.out.println("Ban chon xuat thong tin phong ");
+                                listRoomStandard.display();
+                                break;
+                            case 0:
+                                System.out.println("Tro ve");
+                                break;
+                            default:
+                                System.out.println("Lua chon loi! Vui long chon lai");
+                                break;
+                        }
+                    } while (selectSD != 0);
                     break;
                 default:
                     System.out.println("Lua chon loi! Vui long chon lai");
@@ -267,6 +324,7 @@ public class Menu {
                     break;
                 case 4:
                     System.out.println("Ban chon tim kiem thong tin nhan vien");
+                    listEmployee.find();
                     break;
                 case 5:
                     System.out.println("Ban chon xuat thong tin nhan vien");
@@ -325,6 +383,7 @@ public class Menu {
                     break;
                 case 4:
                     System.out.println("Ban chon tim kiem thong tin khach hang");
+                    listCustomer.find();
                     break;
                 case 5:
                     System.out.println("Ban chon xuat thong tin khach hang");

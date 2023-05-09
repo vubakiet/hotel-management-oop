@@ -1,4 +1,2 @@
 RV101;Dieu Thuyen;day du, view city, 30m2;219000;1199000;1099000
 RV102;Lu Bo;day du, view city, 27m2;209000;1090000;990000
-RV103;Trieu Van;day du;79000;809000;709000
-RV104;Huyen Vu;so beautiful, 40m2;159000;1309000;1209000
