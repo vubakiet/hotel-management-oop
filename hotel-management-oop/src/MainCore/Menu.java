@@ -221,7 +221,7 @@ public class Menu {
                     int selectSD;
                     do {
                         System.out.println("+------------------------------------------+");
-                        System.out.println("|       Danh sach phong StanDard           |");
+                        System.out.println("|       Danh sach phong Standard           |");
                         System.out.println("| -------------------=====-----------------|");
                         System.out.println("| 1. Them thong tin phong                  |");
                         System.out.println("| 2. Sua thong tin phong                   |");
@@ -240,7 +240,7 @@ public class Menu {
                         } while (!matcher.find());
                         selectSD = Integer.parseInt(selectTempSD);
                         ListRoomStandard listRoomStandard = new ListRoomStandard();
-                        listRoomStandard.readListRoomStanDard();
+                        listRoomStandard.readListRoomStandard();
 
                         switch (selectSD) {
                             case 1:

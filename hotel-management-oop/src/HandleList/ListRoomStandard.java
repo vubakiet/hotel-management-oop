@@ -55,7 +55,7 @@ public class ListRoomStandard implements TypeList {
     public int countRoomStandard() {
         int count = 0;
         try {
-            FileInputStream fileInputStream = new FileInputStream("./database/ListRoomStanDard.txt");
+            FileInputStream fileInputStream = new FileInputStream("./database/ListRoomStandard.txt");
             InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream, StandardCharsets.UTF_8);
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
 
@@ -74,9 +74,9 @@ public class ListRoomStandard implements TypeList {
         return count;
     }
 
-    public void readListRoomStanDard() {
+    public void readListRoomStandard() {
         try {
-            FileInputStream fileInputStream = new FileInputStream("./database/ListRoomStanDard.txt");
+            FileInputStream fileInputStream = new FileInputStream("./database/ListRoomStandard.txt");
             InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream, StandardCharsets.UTF_8);
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
 
@@ -98,10 +98,10 @@ public class ListRoomStandard implements TypeList {
             e.printStackTrace();
         }
     }
-    public void updateListRoomStanDard() {
+    public void updateListRoomStandard() {
         FileOutputStream fileOutputStream = null;
         try {
-            fileOutputStream = new FileOutputStream("./database/ListRoomStanDard.txt");
+            fileOutputStream = new FileOutputStream("./database/ListRoomStandard.txt");
             StringBuilder stringBuilder = new StringBuilder();
             for (int i = 0; i < n; i++) {
                 if (listRoom[i] != null) {
@@ -134,7 +134,7 @@ public class ListRoomStandard implements TypeList {
             }
         }
     }
-    public void addToListRoomStanDard(RoomStandard roomStandard) {
+    public void addToListRoomStandard(RoomStandard roomStandard) {
         listRoom = Arrays.copyOf(listRoom, n + 1);
         for (int i = 0; i < n + 1; i++) {
             if (i == n) {
@@ -142,13 +142,13 @@ public class ListRoomStandard implements TypeList {
             }
         }
         n++;
-        updateListRoomStanDard();
+        updateListRoomStandard();
     }
     @Override
     public void add() {
         RoomStandard roomStandard = new RoomStandard();
         roomStandard.input();
-        addToListRoomStanDard(roomStandard);
+        addToListRoomStandard(roomStandard);
     }
 
     @Override
@@ -177,7 +177,7 @@ public class ListRoomStandard implements TypeList {
                 break;
             }
         }
-        if(check) updateListRoomStanDard();
+        if(check) updateListRoomStandard();
         else System.out.println("Khong tim thay ma khach hang");
     }
 
@@ -189,7 +189,7 @@ public class ListRoomStandard implements TypeList {
         do {
             System.out.print("Nhap ma Phong Standard can xoa: ");
             temp = sc.nextLine();
-            String s = "^SD[0-9]{3}$";
+            String s = "^RS[0-9]{3}$";
             Pattern pattern = Pattern.compile(s);
             matcher = pattern.matcher(temp);
         }while(!matcher.find());
@@ -205,7 +205,7 @@ public class ListRoomStandard implements TypeList {
                 listRoom = Arrays.copyOf(listRoom, n);
             }
         }
-        if(check) updateListRoomStanDard();
+        if(check) updateListRoomStandard();
         else System.out.println("Khong tin thay ma khach hang!");
     }
 
@@ -241,7 +241,7 @@ public class ListRoomStandard implements TypeList {
                     do {
                         System.out.print("Nhap ma phong: ");
                         temp = sc.nextLine();
-                        String s = "^SD[0-9]{3}$";
+                        String s = "^RS[0-9]{3}$";
                         Pattern pattern = Pattern.compile(s);
                         matcher = pattern.matcher(temp);
                     } while (!matcher.find());

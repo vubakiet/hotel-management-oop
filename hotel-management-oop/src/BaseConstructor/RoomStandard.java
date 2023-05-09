@@ -55,19 +55,19 @@ public class RoomStandard extends Room {
     public void input() {
         Matcher matcher;
         do {
-            System.out.print("Nhap ma phong StanDard (ex: SD***): ");
+            System.out.print("Nhap ma phong Standard (ex: RS***): ");
             setRoomStandardId(sc.nextLine());
-            String check = "SD[0-9]{3}$";
+            String check = "RS[0-9]{3}$";
             Pattern pattern = Pattern.compile(check);
             matcher = pattern.matcher(getRoomStandardId());
         } while (!matcher.find());
 
         roomDetails.inputForRoom();
-        System.out.print("Nhap gia roomStanDard theo gio (per hour): ");
+        System.out.print("Nhap gia roomStandard theo gio (per hour): ");
         setPricePerHour(sc.nextLine());
-        System.out.print("Nhap gia roomStanDard theo dem (per night): ");
+        System.out.print("Nhap gia roomStandard theo dem (per night): ");
         setPricePerNight(sc.nextLine());
-        System.out.print("Nhap gia roomStanDard theo ngay (per day): ");
+        System.out.print("Nhap gia roomStandard theo ngay (per day): ");
         setPricePerDay(sc.nextLine());
     }
     @Override
