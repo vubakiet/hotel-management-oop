@@ -89,4 +89,9 @@ public class RoomStandard extends Room {
         return getRoomStandardId() + ";" + roomDetails.getName() + ";" + roomDetails.getRoomDetails() + ";"
                 + getPricePerHour() + ";" + getPricePerNight() + ";" + getPricePerDay();
     }
+
+    public String getRoomStandardName(){
+        return roomDetails.getName();
+    }
+
 }

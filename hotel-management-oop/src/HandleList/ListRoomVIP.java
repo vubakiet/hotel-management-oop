@@ -275,7 +275,7 @@ public class ListRoomVIP implements TypeList {
                     System.out.printf("| %-20s %-25s %-50s %-28s %-28s %-28s |",
                             "Ma phong", "Ten phong", "Chi tiet phong", "Gia moi gio", "Gia moi dem", "Gia moi ngay");
                     for (int i = 0; i < n; i++) {
-                        String key = listRoom[i].getName().toLowerCase();
+                        String key = listRoom[i].getRoomVIPName().toLowerCase();
                         if (key.contains(temp.toLowerCase())) {
                             listRoom[i].output();
                         }
