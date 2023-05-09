@@ -490,8 +490,9 @@ public class ListBooking implements TypeList {
                                         "Ma BK", "Ten KH", "Ten NV", "Ma Phong", "Kieu thoi gian", "Thoi gian", "Ngay dat phong", "PTTT", "Tong tien(VND)");
                                 for (int i = 0; i < n; i++) {
                                     String key = listBooking[i].getPaymentMethod().toLowerCase();
-                                    if (key.contentEquals(paymentMethodTemp.toLowerCase())) ;
+                                    if (key.contentEquals(paymentMethodTemp.toLowerCase())){
                                     listBooking[i].output();
+                                    }
                                 }
                                 printLine();
                                 break;

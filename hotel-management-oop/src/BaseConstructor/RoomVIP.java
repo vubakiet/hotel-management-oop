@@ -103,5 +103,9 @@ public class RoomVIP extends Room {
                 + getPricePerHour() + ";" + getPricePerNight() + ";" + getPricePerDay();
     }
 
+    public String getRoomVIPName(){
+        return roomDetails.getName();
+    }
+
 
 }

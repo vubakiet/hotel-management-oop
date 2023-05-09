@@ -1,6 +1,7 @@
 package HandleList;
 
 import AbstractCore.TypeList;
+import BaseConstructor.Booking;
 import BaseConstructor.Customer;
 import OverrideCore.CustomerVIP;
 import OverrideCore.CustomerNormal;
@@ -132,10 +133,10 @@ public class ListCustomer implements TypeList{
 
         do{
             System.out.println("+----------------------------------------------+");
-            System.out.println("|                Them Khach hang               |");
+            System.out.println("|                Loai Khach hang               |");
             System.out.println("| -------------------=====---------------------|");
-            System.out.println("| 1. Them khach hang                           |");
-            System.out.println("| 2. Them khach VIP                            |");
+            System.out.println("| 1. Khach hang Normal                         |");
+            System.out.println("| 2. Khach hang VIP                            |");
             System.out.println("| 0. Tro ve                                    |");
             System.out.println("+----------------------------------------------+");
 
@@ -168,14 +169,301 @@ public class ListCustomer implements TypeList{
     }
     @Override
     public void edit(){
+        Matcher matcher;
+        String temp, selectTemp;
+        int select;
+        display();
+        do {
+            System.out.print("Nhap ma khach hang can thay doi: ");
+            temp = sc.nextLine();
+            String s = "^KH[0-9]{2}$";
+            Pattern pattern = Pattern.compile(s);
+            matcher = pattern.matcher(temp);
+        }while (!matcher.find());
 
+        boolean check = false;
+        for(int i = 0; i < n; i++){
+            String key = listCustomer[i].getCustomerld();
+            if(key.contentEquals(temp)){
+                check = true;
+                do{
+                    System.out.println("+----------------------------------------------+");
+                    System.out.println("|                Loai Khach hang               |");
+                    System.out.println("| -------------------=====---------------------|");
+                    System.out.println("| 1. Khach hang Normal                         |");
+                    System.out.println("| 2. Khach hang VIP                            |");
+                    System.out.println("| 0. Tro ve                                    |");
+                    System.out.println("+----------------------------------------------+");
+
+                    do{
+                        System.out.print("Nhap lua chon: ");
+                        selectTemp = sc.nextLine();
+                        String s = "^[0-9]{1}";
+                        Pattern pattern = Pattern.compile(s);
+                        matcher = pattern.matcher(selectTemp);
+                    }while(!matcher.find());
+                    select = Integer.parseInt(selectTemp);
+
+                    switch(select){
+                        case 1:
+                            Customer cus1 = new CustomerNormal();
+                            System.out.println("Nhap thong tin khach hang!");
+                            cus1.inputForCustomer();
+                            cus1.typeCustomer();
+                            listCustomer[i] = cus1;
+                            break;
+                        case 2:
+                            Customer cus2 = new CustomerVIP();
+                            System.out.println("Nhap thong tin khach hang!");
+                            cus2.inputForCustomer();
+                            cus2.typeCustomer();
+                            listCustomer[i] = cus2;
+                            break;
+                        case 0:
+                            break;
+                    }
+                }while( select !=0);
+            }
+        }
+        if(check) updateListCustomer();
+        else System.out.println("Khong tim thay ma khach hang");
     }
+
     @Override
     public void remove(){
-
+        Matcher matcher;
+        String temp;
+        display();
+        do {
+            System.out.print("Nhap ma khach hang can xoa: ");
+            temp = sc.nextLine();
+            String s = "^KH[0-9]{2}$";
+            Pattern pattern = Pattern.compile(s);
+            matcher = pattern.matcher(temp);
+        }while(!matcher.find());
+        boolean check = false;
+        for(int i = 0; i< n; i++){
+            String key = listCustomer[i].getCustomerld();
+            if(key.contentEquals(temp)) {
+                check = true;
+                for (int j = i; j < n - 1; j++) {
+                    listCustomer[j] = listCustomer[j + 1];
+                }
+                n--;
+                listCustomer = Arrays.copyOf(listCustomer, n);
+            }
+        }
+        if(check) updateListCustomer();
+        else System.out.println("Khong tin thay ma khach hang!");
     }
+
     @Override
     public void find(){
+        Matcher matcher;
+        String temp;
+        String selectTemp;
+        int select;
+        do {
+            System.out.println();
+            System.out.println("+---------------------------------------------+");
+            System.out.println("        Tim kiem trong DS khach hang           ");
+            System.out.println("| -------------------=====--------------------|");
+            System.out.println("| 1. Tim kiem theo ma khach hang              |");
+            System.out.println("| 2. Tim kiem theo Ten khach hang             |");
+            System.out.println("| 3. Tim kiem theo dia chi khach hang         |");
+            System.out.println("| 4. Tim kiem theo tuoi khach hang            |");
+            System.out.println("| 5. Tim kiem theo so dien thoai khach hang   |");
+            System.out.println("| 6. Tim kiem theo loai khach hang            |");
+            System.out.println("| 0. Tro ve                                   |");
+            System.out.println("+---------------------------------------------+");
+            do {
+                System.out.print("Nhap lua chon: ");
+                selectTemp = sc.nextLine();
+                String s = "^[0-9]{1}";
+                Pattern pattern = Pattern.compile(s);
+                matcher = pattern.matcher(selectTemp);
+            } while (!matcher.find());
+            select = Integer.parseInt(selectTemp);
+            switch (select) {
+                case 1:
+                    System.out.println("Ban chon Tim kiem theo ma khach hang");
+                    do {
+                        System.out.print("Nhap ma khach hang: ");
+                        temp = sc.nextLine();
+                        String s = "^KH[0-9]{2}$";
+                        Pattern pattern = Pattern.compile(s);
+                        matcher = pattern.matcher(temp);
+                    } while (!matcher.find());
+                    printLine();
+                    System.out.printf("\n|%-10s %-20s %-30s %-10s %-25s %-15s |\n",
+                            " Ma KH", " Ho Ten", " Dia Chi", " Tuoi", " So Dien Thoai", " Phan Loai Khach");
+                    for (int i = 0; i < n; i++) {
+                        String key = listCustomer[i].getCustomerld();
+                        if (key.contentEquals(temp)) {
+                            listCustomer[i].output();
+                        }
+                    }
+                    printLine();
+                    break;
+                case 2:
+                    System.out.println("Ban chon Tim kiem theo Ten khach hang");
+                    do {
+                        System.out.print("Nhap Ten khach hang: ");
+                        temp = sc.nextLine();
+                        String s = "[^0-9]";
+                        Pattern pattern = Pattern.compile(s);
+                        matcher = pattern.matcher(temp);
+                    } while (!matcher.find());
+                    printLine();
+                    System.out.printf("\n|%-10s %-20s %-30s %-10s %-25s %-15s |\n",
+                            " Ma KH", " Ho Ten", " Dia Chi", " Tuoi", " So Dien Thoai", " Phan Loai Khach");
+                    for (int i = 0; i < n; i++) {
+                        String key = listCustomer[i].getName().toLowerCase();
+                        if (key.contains(temp.toLowerCase())) {
+                            listCustomer[i].output();
+                        }
+                    }
+                    printLine();
+                    break;
+                case 3:
+                    System.out.println("Ban chon Tim kiem theo dia chi khach hang");
+                    do {
+                        System.out.print("Nhap Dia chi khach hang: ");
+                        temp = sc.nextLine();
+                        String s = "[^0-9]";
+                        Pattern pattern = Pattern.compile(s);
+                        matcher = pattern.matcher(temp);
+                    } while (!matcher.find());
+                    printLine();
+                    System.out.printf("\n|%-10s %-20s %-30s %-10s %-25s %-15s |\n",
+                            " Ma KH", " Ho Ten", " Dia Chi", " Tuoi", " So Dien Thoai", " Phan Loai Khach");
+                    for (int i = 0; i < n; i++) {
+                        String key = listCustomer[i].getAddress().toLowerCase();
+                        if (key.contains(temp.toLowerCase())) {
+                            listCustomer[i].output();
+                        }
+                    }
+                    printLine();
+                    break;
+
+                case 4:
+                    System.out.println("Ban chon Tim kiem theo tuoi khach hang");
+                    do {
+                        System.out.print("Nhap tuoi khach hang: ");
+                        temp = sc.nextLine();
+                        String s = "^[0-9]{2}";
+                        Pattern pattern = Pattern.compile(s);
+                        matcher = pattern.matcher(temp);
+                    } while (!matcher.find());
+
+                    printLine();
+                    System.out.printf("\n|%-10s %-20s %-30s %-10s %-25s %-15s |\n",
+                            " Ma KH", " Ho Ten", " Dia Chi", " Tuoi", " So Dien Thoai", " Phan Loai Khach");
+                    for (int i = 0; i < n; i++) {
+                        String key = listCustomer[i].getAge();
+                        if (key.contentEquals(temp)) {
+                            listCustomer[i].output();
+                        }
+                    }
+                    printLine();
+                    break;
+
+                case 5:
+                    System.out.println("Ban chon Tim kiem theo so dien thoai khach hang");
+                    do {
+                        System.out.print("Nhap so dien thoai khach hang: ");
+                        temp = sc.nextLine();
+                        String s = "^[0-9]{10,11}";
+                        Pattern pattern = Pattern.compile(s);
+                        matcher = pattern.matcher(temp);
+                    } while (!matcher.find());
+
+                    printLine();
+                    System.out.printf("\n|%-10s %-20s %-30s %-10s %-25s %-15s |\n",
+                            " Ma KH", " Ho Ten", " Dia Chi", " Tuoi", " So Dien Thoai", " Phan Loai Khach");
+                    for (int i = 0; i < n; i++) {
+                        String key = listCustomer[i].getPhone();
+                        if (key.contentEquals(temp)) {
+                            listCustomer[i].output();
+                        }
+                    }
+                    printLine();
+                    break;
+
+                case 6:
+                    System.out.println("Ban chon Tim kiem theo loai khach hang");
+                    String selectTyperCustomerTemp;
+                    int selectTypeCustomer;
+
+                    do {
+                        System.out.println("+-------------------------------------------+");
+                        System.out.println("|        Chon loai khach hang               |");
+                        System.out.println("| ------------------=====-------------------|");
+                        System.out.println("| 1. khach hang Normal                      |");
+                        System.out.println("| 2. khach hang VIP                         |");
+                        System.out.println("| 0. Tro lai                                |");
+                        System.out.println("+-------------------------------------------+");
+
+                        do {
+                            System.out.print("Nhap lua chon: ");
+                            selectTyperCustomerTemp = sc.nextLine();
+                            String s = "^[0-9]{1}";
+                            Pattern pattern = Pattern.compile(s);
+                            matcher = pattern.matcher(selectTyperCustomerTemp);
+                        } while (!matcher.find());
+                        selectTypeCustomer = Integer.parseInt(selectTyperCustomerTemp);
+
+                        switch (selectTypeCustomer) {
+                            case 1:
+                                System.out.println("Ban chon khach hang Normal");
+                                String TypeCustomerTemp = "Normal";
+
+                                printLine();
+                                System.out.printf("\n|%-10s %-20s %-30s %-10s %-25s %-15s |\n",
+                                        " Ma KH", " Ho Ten", " Dia Chi", " Tuoi", " So Dien Thoai", " Phan Loai Khach");
+                                for (int i = 0; i < n; i++) {
+                                    String key = listCustomer[i].getTypeCustomer().toLowerCase();
+                                    if (key.contentEquals(TypeCustomerTemp.toLowerCase())) {
+                                        listCustomer[i].output();
+                                    }
+                                }
+                                printLine();
+                                break;
+
+                            case 2:
+                                System.out.println("Ban chon khach hang VIP");
+                                String typeCustomerTemp = "VIP";
+
+                                printLine();
+                                System.out.printf("\n|%-10s %-20s %-30s %-10s %-25s %-15s |\n",
+                                        " Ma KH", " Ho Ten", " Dia Chi", " Tuoi", " So Dien Thoai", " Phan Loai Khach");
+                                for (int i = 0; i < n; i++) {
+                                    String key = listCustomer[i].getTypeCustomer().toLowerCase();
+                                    if (key.contentEquals(typeCustomerTemp.toLowerCase())) {
+                                        listCustomer[i].output();
+                                    }
+                                }
+                                printLine();
+                                break;
+
+                            case 0:
+                                System.out.println("Tro lai");
+                                break;
+                            default:
+                                System.out.println("Loi lua chon! Vui long chon lai");
+                                break;
+                        }
+                    } while (selectTypeCustomer != 0);
+                    break;
+
+                case 0:
+                    System.out.println("Tro lai");
+                    break;
+                default:
+                    System.out.println("Loi lua chon! Vui long chon lai");
+                    break;
+            }
+        } while (select != 0);
 
     }
     @Override
