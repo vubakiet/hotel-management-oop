@@ -106,9 +106,11 @@ public class Menu {
                     break;
                 case 3:
                     System.out.println("Ban chon Xoa thong tin don dat phong");
+                    listBooking.remove();
                     break;
                 case 4:
                     System.out.println("Ban chon Tim kiem don dat phong");
+                    listBooking.find();
                     break;
                 case 5:
                     System.out.println("Ban chon Xuat danh sach don dat phong");
