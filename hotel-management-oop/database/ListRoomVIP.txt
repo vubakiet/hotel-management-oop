@@ -1,0 +1,8 @@
+RV101;TP HCM;day du, view city, bien, nui, 30m2;219000;1199000;1099000
+RV102;Ha Noi;day du, view city, bien, nui, 30m2;219000;1199000;1099000
+RV103;Da Nang;day du, view city, bien, nui, 30m2;219000;1199000;1099000
+RV104;Hai Phong;day du, view city, bien, nui, 30m2;219000;1199000;1099000
+RV105;Can Tho;day du, view city, bien, nui, 40m2;419000;1599000;1499000
+RV106;Ba Ria;day du, view city, bien, nui, 40m2;419000;1599000;1499000
+RV107;Da Lat;day du, view city, bien, nui, 40m2;419000;1599000;1499000
+RV108;Cao Bang;day du, view city, bien, nui, 40m2;419000;1599000;1499000
