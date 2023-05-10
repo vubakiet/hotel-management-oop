@@ -1,7 +1,6 @@
 package HandleList;
 
 import AbstractCore.TypeList;
-import BaseConstructor.Booking;
 import BaseConstructor.Employee;
 import OverrideCore.Cleanner;
 import OverrideCore.Manager;
@@ -328,8 +327,8 @@ public class ListEmployee implements TypeList {
                         matcher = pattern.matcher(temp);
                     } while (!matcher.find());
                     printLine();
-                    System.out.printf("\n| %-10s %-20s %-30s %-10s %-15s %-15s %-20s |\n",
-                            "Ma NV", "Ho Ten", "Dia Chi", "Tuoi", "So Dien Thoai", "Chuc Vu", "Luong");
+                    System.out.printf("\n\u001B[44m| %-10s %-20s %-30s %-10s %-15s %-15s %-20s |\u001B[0m\n",
+                            "Ma NV", "Ho Ten", "Dia Chi", "Tuoi", "So dien thoai", "Chuc vu", "Luong");
                     for (int i = 0; i < n; i++) {
                         String key = listEmployee[i].getEmployeeId();
                         if (key.contentEquals(temp)) {
@@ -348,8 +347,8 @@ public class ListEmployee implements TypeList {
                         matcher = pattern.matcher(temp);
                     } while (!matcher.find());
                     printLine();
-                    System.out.printf("\n| %-10s %-20s %-30s %-10s %-15s %-15s %-20s |\n",
-                            "Ma NV", "Ho Ten", "Dia Chi", "Tuoi", "So Dien Thoai", "Chuc Vu", "Luong");
+                    System.out.printf("\n\u001B[44m| %-10s %-20s %-30s %-10s %-15s %-15s %-20s |\u001B[0m\n",
+                            "Ma NV", "Ho Ten", "Dia Chi", "Tuoi", "So dien thoai", "Chuc vu", "Luong");
                     for (int i = 0; i < n; i++) {
                         String key = listEmployee[i].getName().toLowerCase();
                         if (key.contains(temp.toLowerCase())) {
@@ -368,8 +367,8 @@ public class ListEmployee implements TypeList {
                         matcher = pattern.matcher(temp);
                     } while (!matcher.find());
                     printLine();
-                    System.out.printf("\n| %-10s %-20s %-30s %-10s %-15s %-15s %-20s |\n",
-                            "Ma NV", "Ho Ten", "Dia Chi", "Tuoi", "So Dien Thoai", "Chuc Vu", "Luong");
+                    System.out.printf("\n\u001B[44m| %-10s %-20s %-30s %-10s %-15s %-15s %-20s |\u001B[0m\n",
+                            "Ma NV", "Ho Ten", "Dia Chi", "Tuoi", "So dien thoai", "Chuc vu", "Luong");
                     for (int i = 0; i < n; i++) {
                         String key = listEmployee[i].getAddress().toLowerCase();
                         if (key.contains(temp.toLowerCase())) {
@@ -390,8 +389,8 @@ public class ListEmployee implements TypeList {
                     } while (!matcher.find());
 
                     printLine();
-                    System.out.printf("\n| %-10s %-20s %-30s %-10s %-15s %-15s %-20s |\n",
-                            "Ma NV", "Ho Ten", "Dia Chi", "Tuoi", "So Dien Thoai", "Chuc Vu", "Luong");
+                    System.out.printf("\n\u001B[44m| %-10s %-20s %-30s %-10s %-15s %-15s %-20s |\u001B[0m\n",
+                            "Ma NV", "Ho Ten", "Dia Chi", "Tuoi", "So dien thoai", "Chuc vu", "Luong");
                     for (int i = 0; i < n; i++) {
                         String key = listEmployee[i].getAge();
                         if (key.contentEquals(temp)) {
@@ -412,8 +411,8 @@ public class ListEmployee implements TypeList {
                     } while (!matcher.find());
 
                     printLine();
-                    System.out.printf("\n| %-10s %-20s %-30s %-10s %-15s %-15s %-20s |\n",
-                            "Ma NV", "Ho Ten", "Dia Chi", "Tuoi", "So Dien Thoai", "Chuc Vu", "Luong");
+                    System.out.printf("\n\u001B[44m| %-10s %-20s %-30s %-10s %-15s %-15s %-20s |\u001B[0m\n",
+                            "Ma NV", "Ho Ten", "Dia Chi", "Tuoi", "So dien thoai", "Chuc vu", "Luong");
                     for (int i = 0; i < n; i++) {
                         String key = listEmployee[i].getPhone();
                         if (key.contentEquals(temp)) {
@@ -455,8 +454,8 @@ public class ListEmployee implements TypeList {
                                 String ReceptionistTemp = "tiep tan";
 
                                 printLine();
-                                System.out.printf("\n| %-10s %-20s %-30s %-10s %-15s %-15s %-20s |\n",
-                                        "Ma NV", "Ho Ten", "Dia Chi", "Tuoi", "So Dien Thoai", "Chuc Vu", "Luong");
+                                System.out.printf("\n\u001B[44m| %-10s %-20s %-30s %-10s %-15s %-15s %-20s |\u001B[0m\n",
+                                        "Ma NV", "Ho Ten", "Dia Chi", "Tuoi", "So dien thoai", "Chuc vu", "Luong");
                                 for (int i = 0; i < n; i++) {
                                     String key = listEmployee[i].getPosition().toLowerCase();
                                     if (key.contentEquals(ReceptionistTemp.toLowerCase())) {
@@ -471,8 +470,8 @@ public class ListEmployee implements TypeList {
                                 String CleancerTemp = "Lao cong";
 
                                 printLine();
-                                System.out.printf("\n| %-10s %-20s %-30s %-10s %-15s %-15s %-20s |\n",
-                                        "Ma NV", "Ho Ten", "Dia Chi", "Tuoi", "So Dien Thoai", "Chuc Vu", "Luong");
+                                System.out.printf("\n\u001B[44m| %-10s %-20s %-30s %-10s %-15s %-15s %-20s |\u001B[0m\n",
+                                        "Ma NV", "Ho Ten", "Dia Chi", "Tuoi", "So dien thoai", "Chuc vu", "Luong");
                                 for (int i = 0; i < n; i++) {
                                     String key = listEmployee[i].getPosition().toLowerCase();
                                     if (key.contentEquals(CleancerTemp.toLowerCase())) {
@@ -487,8 +486,8 @@ public class ListEmployee implements TypeList {
                                 String ManagerTemp = "Quan ly";
 
                                 printLine();
-                                System.out.printf("\n| %-10s %-20s %-30s %-10s %-15s %-15s %-20s |\n",
-                                        "Ma NV", "Ho Ten", "Dia Chi", "Tuoi", "So Dien Thoai", "Chuc Vu", "Luong");
+                                System.out.printf("\n\u001B[44m| %-10s %-20s %-30s %-10s %-15s %-15s %-20s |\u001B[0m\n",
+                                        "Ma NV", "Ho Ten", "Dia Chi", "Tuoi", "So dien thoai", "Chuc vu", "Luong");
                                 for (int i = 0; i < n; i++) {
                                     String key = listEmployee[i].getPosition().toLowerCase();
                                     if (key.contentEquals(ManagerTemp.toLowerCase())) {
@@ -539,8 +538,8 @@ public class ListEmployee implements TypeList {
                                 String ReceptionistTemp = "15.000.000 vnd";
 
                                 printLine();
-                                System.out.printf("\n| %-10s %-20s %-30s %-10s %-15s %-15s %-20s |\n",
-                                        "Ma NV", "Ho Ten", "Dia Chi", "Tuoi", "So Dien Thoai", "Chuc Vu", "Luong");
+                                System.out.printf("\n\u001B[44m| %-10s %-20s %-30s %-10s %-15s %-15s %-20s |\u001B[0m\n",
+                                        "Ma NV", "Ho Ten", "Dia Chi", "Tuoi", "So dien thoai", "Chuc vu", "Luong");
                                 for (int i = 0; i < n; i++) {
                                     String key = listEmployee[i].getSalary().toLowerCase();
                                     if (key.contentEquals(ReceptionistTemp.toLowerCase())) {
@@ -555,8 +554,8 @@ public class ListEmployee implements TypeList {
                                 String CleancerTemp = "10.000.000 vnd";
 
                                 printLine();
-                                System.out.printf("\n| %-10s %-20s %-30s %-10s %-15s %-15s %-20s |\n",
-                                        "Ma NV", "Ho Ten", "Dia Chi", "Tuoi", "So Dien Thoai", "Chuc Vu", "Luong");
+                                System.out.printf("\n\u001B[44m| %-10s %-20s %-30s %-10s %-15s %-15s %-20s |\u001B[0m\n",
+                                        "Ma NV", "Ho Ten", "Dia Chi", "Tuoi", "So dien thoai", "Chuc vu", "Luong");
                                 for (int i = 0; i < n; i++) {
                                     String key = listEmployee[i].getSalary().toLowerCase();
                                     if (key.contentEquals(CleancerTemp.toLowerCase())) {
@@ -571,8 +570,8 @@ public class ListEmployee implements TypeList {
                                 String ManagerTemp = "20.000.000 vnd";
 
                                 printLine();
-                                System.out.printf("\n| %-10s %-20s %-30s %-10s %-15s %-15s %-20s |\n",
-                                        "Ma NV", "Ho Ten", "Dia Chi", "Tuoi", "So Dien Thoai", "Chuc Vu", "Luong");
+                                System.out.printf("\n\u001B[44m| %-10s %-20s %-30s %-10s %-15s %-15s %-20s |\u001B[0m\n",
+                                        "Ma NV", "Ho Ten", "Dia Chi", "Tuoi", "So dien thoai", "Chuc vu", "Luong");
                                 for (int i = 0; i < n; i++) {
                                     String key = listEmployee[i].getSalary().toLowerCase();
                                     if (key.contentEquals(ManagerTemp.toLowerCase())) {
@@ -607,7 +606,7 @@ public class ListEmployee implements TypeList {
     @Override
     public void display() {
         printLine();
-        System.out.printf("\n| %-10s %-20s %-30s %-10s %-15s %-15s %-20s |\n",
+        System.out.printf("\n\u001B[44m| %-10s %-20s %-30s %-10s %-15s %-15s %-20s |\u001B[0m\n",
                 "Ma NV", "Ho Ten", "Dia Chi", "Tuoi", "So dien thoai", "Chuc vu", "Luong");
         for (int i = 0; i < n; i++) {
             listEmployee[i].output();

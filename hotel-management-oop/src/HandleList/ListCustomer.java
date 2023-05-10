@@ -1,7 +1,6 @@
 package HandleList;
 
 import AbstractCore.TypeList;
-import BaseConstructor.Booking;
 import BaseConstructor.Customer;
 import OverrideCore.CustomerVIP;
 import OverrideCore.CustomerNormal;
@@ -303,7 +302,7 @@ public class ListCustomer implements TypeList{
                         matcher = pattern.matcher(temp);
                     } while (!matcher.find());
                     printLine();
-                    System.out.printf("\n|%-10s %-20s %-30s %-10s %-25s %-15s |\n",
+                    System.out.printf("\n\u001B[44m|%-10s %-20s %-30s %-10s %-25s %-15s |\u001B[0m\n",
                             " Ma KH", " Ho Ten", " Dia Chi", " Tuoi", " So Dien Thoai", " Phan Loai Khach");
                     for (int i = 0; i < n; i++) {
                         String key = listCustomer[i].getCustomerld();
@@ -323,7 +322,7 @@ public class ListCustomer implements TypeList{
                         matcher = pattern.matcher(temp);
                     } while (!matcher.find());
                     printLine();
-                    System.out.printf("\n|%-10s %-20s %-30s %-10s %-25s %-15s |\n",
+                    System.out.printf("\n\u001B[44m|%-10s %-20s %-30s %-10s %-25s %-15s |\u001B[0m\n",
                             " Ma KH", " Ho Ten", " Dia Chi", " Tuoi", " So Dien Thoai", " Phan Loai Khach");
                     for (int i = 0; i < n; i++) {
                         String key = listCustomer[i].getName().toLowerCase();
@@ -343,7 +342,7 @@ public class ListCustomer implements TypeList{
                         matcher = pattern.matcher(temp);
                     } while (!matcher.find());
                     printLine();
-                    System.out.printf("\n|%-10s %-20s %-30s %-10s %-25s %-15s |\n",
+                    System.out.printf("\n\u001B[44m|%-10s %-20s %-30s %-10s %-25s %-15s |\u001B[0m\n",
                             " Ma KH", " Ho Ten", " Dia Chi", " Tuoi", " So Dien Thoai", " Phan Loai Khach");
                     for (int i = 0; i < n; i++) {
                         String key = listCustomer[i].getAddress().toLowerCase();
@@ -365,7 +364,7 @@ public class ListCustomer implements TypeList{
                     } while (!matcher.find());
 
                     printLine();
-                    System.out.printf("\n|%-10s %-20s %-30s %-10s %-25s %-15s |\n",
+                    System.out.printf("\n\u001B[44m|%-10s %-20s %-30s %-10s %-25s %-15s |\u001B[0m\n",
                             " Ma KH", " Ho Ten", " Dia Chi", " Tuoi", " So Dien Thoai", " Phan Loai Khach");
                     for (int i = 0; i < n; i++) {
                         String key = listCustomer[i].getAge();
@@ -387,7 +386,7 @@ public class ListCustomer implements TypeList{
                     } while (!matcher.find());
 
                     printLine();
-                    System.out.printf("\n|%-10s %-20s %-30s %-10s %-25s %-15s |\n",
+                    System.out.printf("\n\u001B[44m|%-10s %-20s %-30s %-10s %-25s %-15s |\u001B[0m\n",
                             " Ma KH", " Ho Ten", " Dia Chi", " Tuoi", " So Dien Thoai", " Phan Loai Khach");
                     for (int i = 0; i < n; i++) {
                         String key = listCustomer[i].getPhone();
@@ -427,7 +426,7 @@ public class ListCustomer implements TypeList{
                                 String TypeCustomerTemp = "Normal";
 
                                 printLine();
-                                System.out.printf("\n|%-10s %-20s %-30s %-10s %-25s %-15s |\n",
+                                System.out.printf("\n\u001B[44m|%-10s %-20s %-30s %-10s %-25s %-15s |\u001B[0m\n",
                                         " Ma KH", " Ho Ten", " Dia Chi", " Tuoi", " So Dien Thoai", " Phan Loai Khach");
                                 for (int i = 0; i < n; i++) {
                                     String key = listCustomer[i].getTypeCustomer().toLowerCase();
@@ -443,7 +442,7 @@ public class ListCustomer implements TypeList{
                                 String typeCustomerTemp = "VIP";
 
                                 printLine();
-                                System.out.printf("\n|%-10s %-20s %-30s %-10s %-25s %-15s |\n",
+                                System.out.printf("\n\u001B[44m|%-10s %-20s %-30s %-10s %-25s %-15s |\u001B[0m\n",
                                         " Ma KH", " Ho Ten", " Dia Chi", " Tuoi", " So Dien Thoai", " Phan Loai Khach");
                                 for (int i = 0; i < n; i++) {
                                     String key = listCustomer[i].getTypeCustomer().toLowerCase();
@@ -477,7 +476,7 @@ public class ListCustomer implements TypeList{
     @Override
     public void display(){
         printLine();
-        System.out.printf("\n|%-10s %-20s %-30s %-10s %-25s %-15s |\n",
+        System.out.printf("\n\u001B[44m|%-10s %-20s %-30s %-10s %-25s %-15s |\u001B[0m\n",
                 " Ma KH", " Ho Ten", " Dia Chi", " Tuoi", " So Dien Thoai", " Phan Loai Khach");
         for (int i =0; i < n ;i++){
             listCustomer[i].output();

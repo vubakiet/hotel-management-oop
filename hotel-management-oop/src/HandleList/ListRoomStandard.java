@@ -1,16 +1,11 @@
 package HandleList;
 import AbstractCore.TypeList;
-import BaseConstructor.Customer;
 import BaseConstructor.RoomStandard;
-import OverrideCore.CustomerNormal;
-import MainCore.Room.*;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -242,7 +237,8 @@ public class ListRoomStandard implements TypeList {
                         matcher = pattern.matcher(temp);
                     } while (!matcher.find());
                     printLine();
-                    System.out.printf("| %-20s %-25s %-50s %-28s %-28s %-28s |", "Ma phong", "Ten phong", "Chi tiet phong", "Gia moi gio", "Gia moi dem", "Gia moi ngay");
+                    System.out.printf("\u001B[44m| %-20s %-25s %-50s %-28s %-28s %-28s |\u001B[0m",
+                            "Ma phong", "Ten phong", "Chi tiet phong", "Gia moi gio", "Gia moi dem", "Gia moi ngay");
                     for (int i = 0; i < n; i++) {
                         String key = listRoom[i].getRoomStandardId();
                         if (key.contentEquals(temp)) {
@@ -262,7 +258,7 @@ public class ListRoomStandard implements TypeList {
                         matcher = pattern.matcher(temp);
                     } while (!matcher.find());
                     printLine();
-                    System.out.printf("| %-20s %-25s %-50s %-28s %-28s %-28s |",
+                    System.out.printf("\u001B[44m| %-20s %-25s %-50s %-28s %-28s %-28s |\u001B[0m",
                             "Ma phong", "Ten phong", "Chi tiet phong", "Gia moi gio", "Gia moi dem", "Gia moi ngay");
                     for (int i = 0; i < n; i++) {
                         String key = listRoom[i].getRoomStandardName().toLowerCase();
@@ -283,7 +279,7 @@ public class ListRoomStandard implements TypeList {
                     } while (!matcher.find());
 
                     printLine();
-                    System.out.printf("| %-20s %-25s %-50s %-28s %-28s %-28s |",
+                    System.out.printf("\u001B[44m| %-20s %-25s %-50s %-28s %-28s %-28s |\u001B[0m",
                             "Ma phong", "Ten phong", "Chi tiet phong", "Gia moi gio", "Gia moi dem", "Gia moi ngay");
                     for (int i = 0; i < n; i++) {
                         String key = listRoom[i].getPricePerHour();
@@ -304,7 +300,7 @@ public class ListRoomStandard implements TypeList {
                     } while (!matcher.find());
 
                     printLine();
-                    System.out.printf("| %-20s %-25s %-50s %-28s %-28s %-28s |",
+                    System.out.printf("\u001B[44m| %-20s %-25s %-50s %-28s %-28s %-28s |\u001B[0m",
                             "Ma phong", "Ten phong", "Chi tiet phong", "Gia moi gio", "Gia moi dem", "Gia moi ngay");
                     for (int i = 0; i < n; i++) {
                         String key = listRoom[i].getPricePerNight();
@@ -325,7 +321,7 @@ public class ListRoomStandard implements TypeList {
                     } while (!matcher.find());
 
                     printLine();
-                    System.out.printf("| %-20s %-25s %-50s %-28s %-28s %-28s |",
+                    System.out.printf("\u001B[44m| %-20s %-25s %-50s %-28s %-28s %-28s |\u001B[0m",
                             "Ma phong", "Ten phong", "Chi tiet phong", "Gia moi gio", "Gia moi dem", "Gia moi ngay");
                     for (int i = 0; i < n; i++) {
                         String key = listRoom[i].getPricePerDay();
@@ -349,7 +345,8 @@ public class ListRoomStandard implements TypeList {
     @Override
     public void display() {
         printLine();
-        System.out.printf("| %-20s %-25s %-50s %-28s %-28s %-28s |", "Ma phong", "Ten phong", "Chi tiet phong", "Gia moi gio", "Gia moi dem", "Gia moi ngay");
+        System.out.printf("\u001B[44m| %-20s %-25s %-50s %-28s %-28s %-28s |\u001B[0m",
+                "Ma phong", "Ten phong", "Chi tiet phong", "Gia moi gio", "Gia moi dem", "Gia moi ngay");
         for (int i = 0; i < getN(); i++) {
             listRoom[i].output();
         }
