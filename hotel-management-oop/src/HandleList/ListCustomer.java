@@ -30,6 +30,14 @@ public class ListCustomer implements TypeList{
 
     }
 
+    public String getCustomerName(int i){
+        return listCustomer[i].getName();
+    }
+
+    public String getTypeCustomer(int i){
+        return listCustomer[i].getTypeCustomer();
+    }
+
     public static void printLine(){
         for (int i = 0;i < 119; i++){
             System.out.print("=");

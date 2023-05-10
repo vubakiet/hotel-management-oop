@@ -1,5 +1,6 @@
 package BaseConstructor;
 
+import HandleList.ListCustomer;
 import HandleList.ListRoomStandard;
 import HandleList.ListRoomVIP;
 import MainCore.Room;
@@ -135,7 +136,7 @@ public class Booking {
             String s = "[^0-9]";
             Pattern pattern = Pattern.compile(s);
             matcher = pattern.matcher(getCustomerName());
-        }while (!matcher.find());
+        } while (!matcher.find());
 
         do {
             System.out.print("Nhap ho ten nhan vien: ");
@@ -143,7 +144,7 @@ public class Booking {
             String s = "[^0-9]";
             Pattern pattern = Pattern.compile(s);
             matcher = pattern.matcher(getEmployeeName());
-        }while (!matcher.find());
+        } while (!matcher.find());
 
 
         String selectTemp;
@@ -298,7 +299,7 @@ public class Booking {
 
                         }
 
-                    } while (selectPaymentMethod <1 || selectPaymentMethod >2);
+                    } while (selectPaymentMethod < 1 || selectPaymentMethod > 2);
                     break;
 
 
@@ -434,7 +435,7 @@ public class Booking {
 
                         }
 
-                    } while (selectPaymentMethod2 <1 || selectPaymentMethod2 >2);
+                    } while (selectPaymentMethod2 < 1 || selectPaymentMethod2 > 2);
                     break;
 
 //                case 0:
@@ -446,7 +447,20 @@ public class Booking {
             }
 
 
-        } while (select <1 || select >2);
+        } while (select < 1 || select > 2);
+
+        ListCustomer listCustomer = new ListCustomer();
+        listCustomer.readListCustomer();
+        for (int i = 0; i < listCustomer.countCustomer(); i++) {
+            String name = listCustomer.getCustomerName(i);
+            String type = listCustomer.getTypeCustomer(i);
+            String customerNameTemp = getCustomerName().toLowerCase();
+            if (customerNameTemp.equals(name.toLowerCase()) && type.equals("VIP")) {
+                System.out.println("Giam 10% cho Khach hang VIP");
+                totalPrice = totalPrice - totalPrice * 0.1;
+                break;
+            }
+        }
 
     }
 //------------Ket thuc input----------------------------------------------------------------------------------
@@ -475,9 +489,9 @@ public class Booking {
 
         listRoomStandard.readListRoomStandard();
         RoomStandard[] roomStandards = listRoomStandard.getListRoom();
-        for (RoomStandard roomStandard : roomStandards){
+        for (RoomStandard roomStandard : roomStandards) {
             String key = roomStandard.getRoomStandardId();
-            if(key.contentEquals(str[3])){
+            if (key.contentEquals(str[3])) {
                 setRoom(roomStandard);
                 setRoomId(key);
             }

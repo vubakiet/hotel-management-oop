@@ -1,1 +1,8 @@
-RS111;tai;bien nui;20;200;2000
+RS201;Song Dong Nai;view bien nui, co thang may, 20m2;49000;609000;509000
+RS202;Song Da;view thanh pho, co thang may, 24m2;59000;709000;609000
+RS203;Song Da;view bien nui, co thang may, 20m2;49000;609000;509000
+RS204;Song Ma;view bien nui, co thang may, 20m2;49000;609000;509000
+RS205;Song Lam;view thanh pho, co thang may, 24m2;59000;709000;609000
+RS206;Song Lo;view thanh pho, co thang may, 24m2;59000;709000;609000
+RS207;Song Me Kong;view khong, co thang may, 20m2;49000;609000;509000
+RS208;Song Chay;view khong, co thang may, 20m2;49000;609000;509000
