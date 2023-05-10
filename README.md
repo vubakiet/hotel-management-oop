@@ -3,7 +3,7 @@
 
 ## Team member
 
-| TenSV                     |    MaSV    |
+| Tên Sinh Viên             |    MSSV    |
 |---------------------------|------------|
 | Vũ Bá Kiệt                | 3119410216 |
 | Tiêu Tuấn Kiệt            | 3119410212 |
