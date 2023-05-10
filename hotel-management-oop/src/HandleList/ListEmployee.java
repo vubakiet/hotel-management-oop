@@ -24,10 +24,6 @@ public class ListEmployee implements TypeList {
         n = 0;
     }
 
-    public ListEmployee(int n, Employee[] listEmployee) {
-        this.n = n;
-        this.listEmployee = listEmployee;
-    }
 
     public static void printLine() {
         for (int i = 0; i < 130; i++) {

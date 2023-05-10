@@ -14,11 +14,6 @@ public class Customer extends Person {
         this.customerld = customerld;
         this.typeCustomer = typeCustomer;
     }
-    public Customer(String name, String age, String phone, String address, String customerld, String typeCustomer) {
-        super(name, age, phone, address);
-        this.customerld = customerld;
-        this.typeCustomer = typeCustomer;
-    }
     public String getCustomerld() {
         return customerld;
     }

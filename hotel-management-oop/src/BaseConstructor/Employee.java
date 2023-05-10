@@ -13,18 +13,6 @@ public class Employee extends Person {
     public Employee() {
     }
 
-    public Employee(String employeeId, String position, String salary) {
-        this.employeeId = employeeId;
-        this.position = position;
-        this.salary = salary;
-    }
-
-    public Employee(String name, String age, String phone, String address, String employeeId, String position, String salary) {
-        super(name, age, phone, address);
-        this.employeeId = employeeId;
-        this.position = position;
-        this.salary = salary;
-    }
 
     public String getEmployeeId() {
         return employeeId;

@@ -22,10 +22,6 @@ public class ListRoomVIP implements TypeList {
         n = 0;
     }
 
-    public ListRoomVIP(int n, RoomVIP[] listRoom) {
-        this.n = n;
-        this.listRoom = listRoom;
-    }
 
     public int getN() {
         return n;

@@ -14,22 +14,6 @@ public class RoomVIP extends Room {
     public RoomVIP() {
     }
 
-    public RoomVIP(String roomVIPId, String pricePerHour, String pricePerNight, String pricePerDay, Room roomDetails) {
-        this.roomVIPId = roomVIPId;
-        this.pricePerHour = pricePerHour;
-        this.pricePerNight = pricePerNight;
-        this.pricePerDay = pricePerDay;
-        this.roomDetails = roomDetails;
-    }
-
-    public RoomVIP(String name, String roomDetails, String roomVIPId, String pricePerHour, String pricePerNight, String pricePerDay, Room roomDetails1) {
-        super(name, roomDetails);
-        this.roomVIPId = roomVIPId;
-        this.pricePerHour = pricePerHour;
-        this.pricePerNight = pricePerNight;
-        this.pricePerDay = pricePerDay;
-        this.roomDetails = roomDetails1;
-    }
 
     public String getRoomVIPId() {
         return roomVIPId;

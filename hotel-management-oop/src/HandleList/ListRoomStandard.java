@@ -24,10 +24,6 @@ public class ListRoomStandard implements TypeList {
         n = 0;
     }
 
-    public ListRoomStandard(int n, RoomStandard[] listRoom) {
-        this.n = n;
-        this.listRoom = listRoom;
-    }
     public int getN() {
         return n;
     }

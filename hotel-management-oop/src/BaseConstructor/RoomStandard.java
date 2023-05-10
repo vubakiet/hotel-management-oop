@@ -9,23 +9,6 @@ public class RoomStandard extends Room {
     private String roomStandardId;
     private String pricePerHour, pricePerNight, pricePerDay;
     private Room roomDetails = new Room();
-    public RoomStandard(String roomVIPId, String pricePerHour, String pricePerNight, String pricePerDay,
-                        Room roomDetails) {
-        this.roomStandardId = roomStandardId;
-        this.pricePerHour = pricePerHour;
-        this.pricePerNight = pricePerNight;
-        this.pricePerDay = pricePerDay;
-        this.roomDetails = roomDetails;
-    }
-    public RoomStandard(String name, String roomDetails, String roomVIPId, String pricePerHour, String pricePerNight,
-                        String pricePerDay, Room roomDetails2) {
-        super(name, roomDetails);
-        this.roomStandardId = roomVIPId;
-        this.pricePerHour = pricePerHour;
-        this.pricePerNight = pricePerNight;
-        this.pricePerDay = pricePerDay;
-        this.roomDetails = roomDetails2;
-    }
     public RoomStandard() {
     }
     public String getRoomStandardId() {
