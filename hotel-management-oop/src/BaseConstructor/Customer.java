@@ -45,13 +45,18 @@ public class Customer extends Person {
         do{
             System.out.print("Nhap ma khach hang: ");
             setCustomerld(sc.nextLine());
-            String checkID = "KH[0-9]{2}";
+            String checkID = "^KH[0-9]{2}$";
             Pattern pattern = Pattern.compile(checkID);
             matcher = pattern.matcher(getCustomerld());
         }while (!matcher.find());
 
-        System.out.print("Nhap ten khach hang: ");
-        super.setName(sc.nextLine());
+        do {
+            System.out.print("Nhap ten khach hang: ");
+            super.setName(sc.nextLine());
+            String s = "[^0-9]";
+            Pattern pattern = Pattern.compile(s);
+            matcher = pattern.matcher(super.getName());
+        }while (!matcher.find());
 
         System.out.print("Nhap dia chi khach hang: ");
         super.setAddress(sc.nextLine());

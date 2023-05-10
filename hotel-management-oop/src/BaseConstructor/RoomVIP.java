@@ -68,7 +68,7 @@ public class RoomVIP extends Room {
         do {
             System.out.print("Nhap ma phong VIP (ex: RV***): ");
             setRoomVIPId(sc.nextLine());
-            String check = "RV[0-9]{3}$";
+            String check = "^RV[0-9]{3}$";
             Pattern pattern = Pattern.compile(check);
             matcher = pattern.matcher(getRoomVIPId());
         } while (!matcher.find());

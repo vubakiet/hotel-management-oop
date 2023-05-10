@@ -129,11 +129,21 @@ public class Booking {
             matcher = pattern.matcher(getBookingId());
         } while (!matcher.find());
 
-        System.out.print("Nhap ho ten khach hang: ");
-        setCustomerName(sc.nextLine());
+        do {
+            System.out.print("Nhap ho ten khach hang: ");
+            setCustomerName(sc.nextLine());
+            String s = "[^0-9]";
+            Pattern pattern = Pattern.compile(s);
+            matcher = pattern.matcher(getCustomerName());
+        }while (!matcher.find());
 
-        System.out.print("Nhap ho ten nhan vien: ");
-        setEmployeeName(sc.nextLine());
+        do {
+            System.out.print("Nhap ho ten nhan vien: ");
+            setEmployeeName(sc.nextLine());
+            String s = "[^0-9]";
+            Pattern pattern = Pattern.compile(s);
+            matcher = pattern.matcher(getEmployeeName());
+        }while (!matcher.find());
 
 
         String selectTemp;
@@ -242,7 +252,7 @@ public class Booking {
                         System.out.printf("\u001B[41m| Khong tim thay ma phong %s |\u001B[0m \n", roomVIPId);
 
                     do {
-                        System.out.print("Nhap ngay dat phong: ");
+                        System.out.print("Nhap ngay dat phong (ex: **/**/****): ");
                         setCreateAt(sc.nextLine());
                         String s = "^[0-9]{2}/[0-9]{2}/[0-9]{4}$";
                         Pattern pattern = Pattern.compile(s);
@@ -289,12 +299,142 @@ public class Booking {
                         }
 
                     } while (selectPaymentMethod <1 || selectPaymentMethod >2);
+                    break;
 
 
 // ket thuc case 1 --------------------------------------------------------------------------------------
 
                 case 2:
-                    System.out.println("Ban chon phong VIP");
+                    System.out.println("Ban chon phong Standard");
+                    listRoomStandard.readListRoomStandard();
+                    listRoomStandard.display();
+
+                    RoomStandard[] roomStandards = listRoomStandard.getListRoom();
+                    String roomStandardId;
+                    do {
+                        System.out.print("Nhap ma phong: ");
+                        roomStandardId = sc.nextLine();
+                        String s = "RS[0-9]{3}";
+                        Pattern pattern = Pattern.compile(s);
+                        matcher = pattern.matcher(roomStandardId);
+                    } while (!matcher.find());
+
+                    boolean check2 = false;
+
+                    //Tim phong trong database
+                    for (RoomStandard roomStandard : roomStandards) {
+                        String key = roomStandard.getRoomStandardId();
+                        if (key.contentEquals(roomStandardId)) {
+                            setRoomId(key);
+                            int selectTypeTime;
+                            String selectTypeTimeTemp;
+                            Matcher matcherTypeTime;
+
+                            do {
+                                System.out.println("+------------------------------+");
+                                System.out.println("|        Chon hinh thuc        |");
+                                System.out.println("| ------------=====------------|");
+                                System.out.println("| 1. Theo gio                  |");
+                                System.out.println("| 2. Theo dem                  |");
+                                System.out.println("| 3. Theo ngay                 |");
+//                                    System.out.println("| 0. Tro lai                   |");
+                                System.out.println("+------------------------------+");
+
+                                do {
+                                    System.out.print("Nhap lua chon: ");
+                                    selectTypeTimeTemp = sc.nextLine();
+                                    String s = "^[0-9]{1}";
+                                    Pattern pattern = Pattern.compile(s);
+                                    matcherTypeTime = pattern.matcher(selectTypeTimeTemp);
+                                } while (!matcherTypeTime.find());
+                                selectTypeTime = Integer.parseInt(selectTypeTimeTemp);
+
+                                switch (selectTypeTime) {
+                                    case 1:
+                                        System.out.println("Ban chon theo gio");
+                                        setTypeTime("theo gio");
+                                        System.out.print("Nhap so gio: ");
+                                        setTime(Integer.parseInt(sc.nextLine()));
+                                        setTotalPrice(getTime() * Double.parseDouble(roomStandard.getPricePerHour()));
+                                        break;
+                                    case 2:
+                                        System.out.println("Ban chon theo dem");
+                                        setTypeTime("theo dem");
+                                        setTime(1);
+                                        setTotalPrice(getTime() * Double.parseDouble(roomStandard.getPricePerNight()));
+                                        break;
+                                    case 3:
+                                        System.out.println("Ban chon theo ngay");
+                                        setTypeTime("theo ngay");
+                                        System.out.print("Nhap so ngay: ");
+                                        setTime(Integer.parseInt(sc.nextLine()));
+                                        setTotalPrice(getTime() * Double.parseDouble(roomStandard.getPricePerDay()));
+                                        break;
+//                                        case 0:
+//                                            System.out.println("Tro lai");
+//                                            break;
+//                                        default:
+//                                            System.out.println("Loi lua chon! Vui long nhap lai");
+//                                            break;
+                                }
+
+                            } while (selectTypeTime < 1 || selectTypeTime > 3);
+
+                            check2 = true;
+                        }
+                    }
+
+                    if (!check2)
+                        System.out.printf("\u001B[41m| Khong tim thay ma phong %s |\u001B[0m \n", roomStandardId);
+
+                    do {
+                        System.out.print("Nhap ngay dat phong (ex: **/**/****): ");
+                        setCreateAt(sc.nextLine());
+                        String s = "^[0-9]{2}/[0-9]{2}/[0-9]{4}$";
+                        Pattern pattern = Pattern.compile(s);
+                        matcher = pattern.matcher(getCreateAt());
+                    } while (!matcher.find());
+
+                    int selectPaymentMethod2;
+                    String selectPaymentMethodTemp2;
+                    Matcher matcherPaymentMethod2;
+                    do {
+                        System.out.println("+-------------------------------------------+");
+                        System.out.println("|        Chon phuong thuc thanh toan        |");
+                        System.out.println("| ------------------=====-------------------|");
+                        System.out.println("| 1. Bang tien mat                          |");
+                        System.out.println("| 2. Bang the                               |");
+//                        System.out.println("| 0. Tro lai                                |");
+                        System.out.println("+-------------------------------------------+");
+
+                        do {
+                            System.out.print("Vui long chon: ");
+                            selectPaymentMethodTemp2 = sc.nextLine();
+                            String s = "^[0-9]{1}";
+                            Pattern pattern = Pattern.compile(s);
+                            matcherPaymentMethod2 = pattern.matcher(selectPaymentMethodTemp2);
+                        } while (!matcherPaymentMethod2.find());
+                        selectPaymentMethod2 = Integer.parseInt(selectPaymentMethodTemp2);
+
+                        switch (selectPaymentMethod2) {
+                            case 1:
+                                System.out.println("Ban chon tra bang tien mat");
+                                setPaymentMethod("tien mat");
+                                break;
+                            case 2:
+                                System.out.println("Ban chon tra bang the");
+                                setPaymentMethod("the");
+                                break;
+//                            case 0:
+//                                System.out.println("Tro lai");
+//                                break;
+//                            default:
+//                                System.out.println("Loi lua chon! Vui long chon lai");
+//                                break;
+
+                        }
+
+                    } while (selectPaymentMethod2 <1 || selectPaymentMethod2 >2);
                     break;
 
 //                case 0:
@@ -322,6 +462,7 @@ public class Booking {
         setBookingId(str[0]);
         setCustomerName(str[1]);
         setEmployeeName(str[2]);
+
         listRoomVIP.readListRoomVIP();
         RoomVIP[] roomVIPs = listRoomVIP.getListRoom();
         for (RoomVIP roomVIP : roomVIPs) {
@@ -331,6 +472,17 @@ public class Booking {
                 setRoomId(key);
             }
         }
+
+        listRoomStandard.readListRoomStandard();
+        RoomStandard[] roomStandards = listRoomStandard.getListRoom();
+        for (RoomStandard roomStandard : roomStandards){
+            String key = roomStandard.getRoomStandardId();
+            if(key.contentEquals(str[3])){
+                setRoom(roomStandard);
+                setRoomId(key);
+            }
+        }
+
         setTypeTime(str[4]);
         setTime(Integer.parseInt(str[5]));
         setCreateAt(str[6]);

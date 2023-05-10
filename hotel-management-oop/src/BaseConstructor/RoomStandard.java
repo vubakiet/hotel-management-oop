@@ -57,7 +57,7 @@ public class RoomStandard extends Room {
         do {
             System.out.print("Nhap ma phong Standard (ex: RS***): ");
             setRoomStandardId(sc.nextLine());
-            String check = "RS[0-9]{3}$";
+            String check = "^RS[0-9]{3}$";
             Pattern pattern = Pattern.compile(check);
             matcher = pattern.matcher(getRoomStandardId());
         } while (!matcher.find());

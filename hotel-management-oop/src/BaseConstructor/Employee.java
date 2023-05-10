@@ -55,13 +55,18 @@ public class Employee extends Person {
         do{
             System.out.print("Nhap ma nhan vien: ");
             setEmployeeId(sc.nextLine());
-            String s = "NV[0-9]{2}";
+            String s = "^NV[0-9]{2}$";
             Pattern pattern = Pattern.compile(s);
             matcher = pattern.matcher(getEmployeeId());
         }while (!matcher.find());
 
-        System.out.print("Nhap ten nhan vien: ");
-        super.setName(sc.nextLine());
+        do {
+            System.out.print("Nhap ten nhan vien: ");
+            super.setName(sc.nextLine());
+            String s = "[^0-9]";
+            Pattern pattern = Pattern.compile(s);
+            matcher = pattern.matcher(super.getName());
+        }while (!matcher.find());
 
         System.out.print("Nhap dia chi nhan vien: ");
         super.setAddress(sc.nextLine());
