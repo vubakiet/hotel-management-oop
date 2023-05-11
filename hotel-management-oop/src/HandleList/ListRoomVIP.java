@@ -245,8 +245,8 @@ public class ListRoomVIP implements TypeList {
                         matcher = pattern.matcher(temp);
                     } while (!matcher.find());
                     printLine();
-                    System.out.printf("\u001B[44m| %-20s %-25s %-50s %-28s %-28s %-28s |\u001B[0m",
-                            "Ma phong", "Ten phong", "Chi tiet phong", "Gia moi gio", "Gia moi dem", "Gia moi ngay");
+                    System.out.printf("\u001B[44m| %-20s %-25s %-50s %-28s %-28s %-28s %-28s |\u001B[0m",
+                            "Ma phong", "Ten phong", "Chi tiet phong", "Gia moi gio", "Gia moi dem", "Gia moi ngay", "Trang thai");
                     for (int i = 0; i < n; i++) {
                         String key = listRoom[i].getRoomVIPId();
                         if (key.contentEquals(temp)) {
@@ -266,8 +266,8 @@ public class ListRoomVIP implements TypeList {
                         matcher = pattern.matcher(temp);
                     } while (!matcher.find());
                     printLine();
-                    System.out.printf("\u001B[44m| %-20s %-25s %-50s %-28s %-28s %-28s |\u001B[0m",
-                            "Ma phong", "Ten phong", "Chi tiet phong", "Gia moi gio", "Gia moi dem", "Gia moi ngay");
+                    System.out.printf("\u001B[44m| %-20s %-25s %-50s %-28s %-28s %-28s %-28s |\u001B[0m",
+                            "Ma phong", "Ten phong", "Chi tiet phong", "Gia moi gio", "Gia moi dem", "Gia moi ngay", "Trang thai");
                     for (int i = 0; i < n; i++) {
                         String key = listRoom[i].getRoomVIPName().toLowerCase();
                         if (key.contains(temp.toLowerCase())) {
@@ -287,8 +287,8 @@ public class ListRoomVIP implements TypeList {
                     } while (!matcher.find());
 
                     printLine();
-                    System.out.printf("\u001B[44m| %-20s %-25s %-50s %-28s %-28s %-28s |\u001B[0m",
-                            "Ma phong", "Ten phong", "Chi tiet phong", "Gia moi gio", "Gia moi dem", "Gia moi ngay");
+                    System.out.printf("\u001B[44m| %-20s %-25s %-50s %-28s %-28s %-28s %-28s |\u001B[0m",
+                            "Ma phong", "Ten phong", "Chi tiet phong", "Gia moi gio", "Gia moi dem", "Gia moi ngay", "Trang thai");
                     for (int i = 0; i < n; i++) {
                         String key = listRoom[i].getPricePerHour();
                         if (key.contentEquals(temp)) {
@@ -308,8 +308,8 @@ public class ListRoomVIP implements TypeList {
                     } while (!matcher.find());
 
                     printLine();
-                    System.out.printf("\u001B[44m| %-20s %-25s %-50s %-28s %-28s %-28s |\u001B[0m",
-                            "Ma phong", "Ten phong", "Chi tiet phong", "Gia moi gio", "Gia moi dem", "Gia moi ngay");
+                    System.out.printf("\u001B[44m| %-20s %-25s %-50s %-28s %-28s %-28s %-28s |\u001B[0m",
+                            "Ma phong", "Ten phong", "Chi tiet phong", "Gia moi gio", "Gia moi dem", "Gia moi ngay", "Trang thai");
                     for (int i = 0; i < n; i++) {
                         String key = listRoom[i].getPricePerNight();
                         if (key.contentEquals(temp)) {
@@ -329,8 +329,8 @@ public class ListRoomVIP implements TypeList {
                     } while (!matcher.find());
 
                     printLine();
-                    System.out.printf("\u001B[44m| %-20s %-25s %-50s %-28s %-28s %-28s |\u001B[0m",
-                            "Ma phong", "Ten phong", "Chi tiet phong", "Gia moi gio", "Gia moi dem", "Gia moi ngay");
+                    System.out.printf("\u001B[44m| %-20s %-25s %-50s %-28s %-28s %-28s %-28s |\u001B[0m",
+                            "Ma phong", "Ten phong", "Chi tiet phong", "Gia moi gio", "Gia moi dem", "Gia moi ngay", "Trang thai");
                     for (int i = 0; i < n; i++) {
                         String key = listRoom[i].getPricePerDay();
                         if (key.contentEquals(temp)) {
@@ -353,8 +353,8 @@ public class ListRoomVIP implements TypeList {
     @Override
     public void display() {
         printLine();
-        System.out.printf("\u001B[44m| %-20s %-25s %-50s %-28s %-28s %-28s |\u001B[0m",
-                "Ma phong", "Ten phong", "Chi tiet phong", "Gia moi gio", "Gia moi dem", "Gia moi ngay");
+        System.out.printf("\u001B[44m| %-20s %-25s %-50s %-28s %-28s %-28s %-28s |\u001B[0m",
+                "Ma phong", "Ten phong", "Chi tiet phong", "Gia moi gio", "Gia moi dem", "Gia moi ngay", "Trang thai");
         for (int i = 0; i < getN(); i++) {
             listRoom[i].output();
         }

@@ -55,8 +55,8 @@ public class RoomStandard extends Room {
     }
     @Override
     public void output() {
-        System.out.printf("\n| %-20s %-25s %-50s %-28s %-28s %-28s |",
-                getRoomStandardId(), roomDetails.getName(), roomDetails.getRoomDetails(), getPricePerHour(), getPricePerNight(), getPricePerDay());
+        System.out.printf("\n| %-20s %-25s %-50s %-28s %-28s %-28s %-28s |",
+                getRoomStandardId(), roomDetails.getName(), roomDetails.getRoomDetails(), getPricePerHour(), getPricePerNight(), getPricePerDay(), roomDetails.getStatus());
     }
     public void getLineFromFile(String line){
         String[] str = line.split(";");
@@ -66,15 +66,24 @@ public class RoomStandard extends Room {
         setPricePerHour(str[3]);
         setPricePerNight(str[4]);
         setPricePerDay(str[5]);
+        roomDetails.setStatus(str[6]);
     }
 
     public String mergeInformationToFile(){
         return getRoomStandardId() + ";" + roomDetails.getName() + ";" + roomDetails.getRoomDetails() + ";"
-                + getPricePerHour() + ";" + getPricePerNight() + ";" + getPricePerDay();
+                + getPricePerHour() + ";" + getPricePerNight() + ";" + getPricePerDay() + ";" + roomDetails.getStatus();
     }
 
     public String getRoomStandardName(){
         return roomDetails.getName();
+    }
+
+    public String getStatusRoomStandard(){
+        return roomDetails.getStatus();
+    }
+
+    public void setStatusRoomStandard(String statusStandard){
+        roomDetails.setStatus(statusStandard);
     }
 
 }

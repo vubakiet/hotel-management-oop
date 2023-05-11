@@ -144,7 +144,9 @@ public class ListBooking implements TypeList {
     public void add() {
         Booking booking = new Booking();
         booking.inputForBooking();
+        if (booking.getRoomId() != null){
         addToListBooking(booking);
+        }
     }
 
     @Override
@@ -256,8 +258,8 @@ public class ListBooking implements TypeList {
                     } while (!matcher.find());
 
                     printLine();
-                    System.out.printf("\n\u001B[44m| %-15s %-20s %-20s %-20s %-25s %-15s %-30s %-20s %-23s |\u001B[0m",
-                            "Ma BK", "Ten KH", "Ten NV", "Ma Phong", "Kieu thoi gian", "Thoi gian", "Ngay dat phong", "PTTT", "Tong tien(VND)");
+                    System.out.printf("\n\u001B[44m| %-15s %-20s %-20s %-20s %-25s %-15s %-30s %-30s %-30s %-20s %-23s |\u001B[0m",
+                            "Ma BK", "Ten KH", "Ten NV", "Ma Phong", "Kieu thoi gian", "Thoi gian", "Nhan phong", "Tra Phong", "Ngay dat phong", "PTTT", "Tong tien(VND)");
                     for (int i = 0; i < n; i++) {
                         String key = listBooking[i].getBookingId();
                         if (key.contentEquals(temp)) {
@@ -278,8 +280,8 @@ public class ListBooking implements TypeList {
                     } while (!matcher.find());
 
                     printLine();
-                    System.out.printf("\n\u001B[44m| %-15s %-20s %-20s %-20s %-25s %-15s %-30s %-20s %-23s |\u001B[0m",
-                            "Ma BK", "Ten KH", "Ten NV", "Ma Phong", "Kieu thoi gian", "Thoi gian", "Ngay dat phong", "PTTT", "Tong tien(VND)");
+                    System.out.printf("\n\u001B[44m| %-15s %-20s %-20s %-20s %-25s %-15s %-30s %-30s %-30s %-20s %-23s |\u001B[0m",
+                            "Ma BK", "Ten KH", "Ten NV", "Ma Phong", "Kieu thoi gian", "Thoi gian", "Nhan phong", "Tra Phong", "Ngay dat phong", "PTTT", "Tong tien(VND)");
                     for (int i = 0; i < n; i++) {
                         String key = listBooking[i].getCustomerName().toLowerCase();
                         if (key.contains(temp.toLowerCase())) {
@@ -300,8 +302,8 @@ public class ListBooking implements TypeList {
                     } while (!matcher.find());
 
                     printLine();
-                    System.out.printf("\n\u001B[44m| %-15s %-20s %-20s %-20s %-25s %-15s %-30s %-20s %-23s |\u001B[0m",
-                            "Ma BK", "Ten KH", "Ten NV", "Ma Phong", "Kieu thoi gian", "Thoi gian", "Ngay dat phong", "PTTT", "Tong tien(VND)");
+                    System.out.printf("\n\u001B[44m| %-15s %-20s %-20s %-20s %-25s %-15s %-30s %-30s %-30s %-20s %-23s |\u001B[0m",
+                            "Ma BK", "Ten KH", "Ten NV", "Ma Phong", "Kieu thoi gian", "Thoi gian", "Nhan phong", "Tra Phong", "Ngay dat phong", "PTTT", "Tong tien(VND)");
                     for (int i = 0; i < n; i++) {
                         String key = listBooking[i].getEmployeeName().toLowerCase();
                         if (key.contains(temp.toLowerCase())) {
@@ -322,8 +324,8 @@ public class ListBooking implements TypeList {
                     } while (!matcher.find());
 
                     printLine();
-                    System.out.printf("\n\u001B[44m| %-15s %-20s %-20s %-20s %-25s %-15s %-30s %-20s %-23s |\u001B[0m",
-                            "Ma BK", "Ten KH", "Ten NV", "Ma Phong", "Kieu thoi gian", "Thoi gian", "Ngay dat phong", "PTTT", "Tong tien(VND)");
+                    System.out.printf("\n\u001B[44m| %-15s %-20s %-20s %-20s %-25s %-15s %-30s %-30s %-30s %-20s %-23s |\u001B[0m",
+                            "Ma BK", "Ten KH", "Ten NV", "Ma Phong", "Kieu thoi gian", "Thoi gian", "Nhan phong", "Tra Phong", "Ngay dat phong", "PTTT", "Tong tien(VND)");
                     for (int i = 0; i < n; i++) {
                         String key = listBooking[i].getRoomId();
                         if (key.contentEquals(temp)) {
@@ -364,8 +366,8 @@ public class ListBooking implements TypeList {
                                 typeTimeTemp = "theo gio";
 
                                 printLine();
-                                System.out.printf("\n\u001B[44m| %-15s %-20s %-20s %-20s %-25s %-15s %-30s %-20s %-23s |\u001B[0m",
-                                        "Ma BK", "Ten KH", "Ten NV", "Ma Phong", "Kieu thoi gian", "Thoi gian", "Ngay dat phong", "PTTT", "Tong tien(VND)");
+                                System.out.printf("\n\u001B[44m| %-15s %-20s %-20s %-20s %-25s %-15s %-30s %-30s %-30s %-20s %-23s |\u001B[0m",
+                                        "Ma BK", "Ten KH", "Ten NV", "Ma Phong", "Kieu thoi gian", "Thoi gian", "Nhan phong", "Tra Phong", "Ngay dat phong", "PTTT", "Tong tien(VND)");
                                 for (int i = 0; i < n; i++) {
                                     String key = listBooking[i].getTypeTime().toLowerCase();
                                     if (key.contentEquals(typeTimeTemp.toLowerCase())) {
@@ -380,8 +382,8 @@ public class ListBooking implements TypeList {
                                 typeTimeTemp = "theo dem";
 
                                 printLine();
-                                System.out.printf("\n\u001B[44m| %-15s %-20s %-20s %-20s %-25s %-15s %-30s %-20s %-23s |\u001B[0m",
-                                        "Ma BK", "Ten KH", "Ten NV", "Ma Phong", "Kieu thoi gian", "Thoi gian", "Ngay dat phong", "PTTT", "Tong tien(VND)");
+                                System.out.printf("\n\u001B[44m| %-15s %-20s %-20s %-20s %-25s %-15s %-30s %-30s %-30s %-20s %-23s |\u001B[0m",
+                                        "Ma BK", "Ten KH", "Ten NV", "Ma Phong", "Kieu thoi gian", "Thoi gian", "Nhan phong", "Tra Phong", "Ngay dat phong", "PTTT", "Tong tien(VND)");
                                 for (int i = 0; i < n; i++) {
                                     String key = listBooking[i].getTypeTime().toLowerCase();
                                     if (key.contentEquals(typeTimeTemp.toLowerCase())) {
@@ -396,8 +398,8 @@ public class ListBooking implements TypeList {
                                 typeTimeTemp = "theo ngay";
 
                                 printLine();
-                                System.out.printf("\n\u001B[44m| %-15s %-20s %-20s %-20s %-25s %-15s %-30s %-20s %-23s |\u001B[0m",
-                                        "Ma BK", "Ten KH", "Ten NV", "Ma Phong", "Kieu thoi gian", "Thoi gian", "Ngay dat phong", "PTTT", "Tong tien(VND)");
+                                System.out.printf("\n\u001B[44m| %-15s %-20s %-20s %-20s %-25s %-15s %-30s %-30s %-30s %-20s %-23s |\u001B[0m",
+                                        "Ma BK", "Ten KH", "Ten NV", "Ma Phong", "Kieu thoi gian", "Thoi gian", "Nhan phong", "Tra Phong", "Ngay dat phong", "PTTT", "Tong tien(VND)");
                                 for (int i = 0; i < n; i++) {
                                     String key = listBooking[i].getTypeTime().toLowerCase();
                                     if (key.contentEquals(typeTimeTemp.toLowerCase())) {
@@ -429,8 +431,8 @@ public class ListBooking implements TypeList {
                     } while (!matcher.find());
 
                     printLine();
-                    System.out.printf("\n\u001B[44m| %-15s %-20s %-20s %-20s %-25s %-15s %-30s %-20s %-23s |\u001B[0m",
-                            "Ma BK", "Ten KH", "Ten NV", "Ma Phong", "Kieu thoi gian", "Thoi gian", "Ngay dat phong", "PTTT", "Tong tien(VND)");
+                    System.out.printf("\n\u001B[44m| %-15s %-20s %-20s %-20s %-25s %-15s %-30s %-30s %-30s %-20s %-23s |\u001B[0m",
+                            "Ma BK", "Ten KH", "Ten NV", "Ma Phong", "Kieu thoi gian", "Thoi gian", "Nhan phong", "Tra Phong", "Ngay dat phong", "PTTT", "Tong tien(VND)");
                     for (int i = 0; i < n; i++) {
                         String key = listBooking[i].getCreateAt();
                         if (key.contentEquals(temp)) {
@@ -470,8 +472,8 @@ public class ListBooking implements TypeList {
                                 paymentMethodTemp = "tien mat";
 
                                 printLine();
-                                System.out.printf("\n\u001B[44m| %-15s %-20s %-20s %-20s %-25s %-15s %-30s %-20s %-23s |\u001B[0m",
-                                        "Ma BK", "Ten KH", "Ten NV", "Ma Phong", "Kieu thoi gian", "Thoi gian", "Ngay dat phong", "PTTT", "Tong tien(VND)");
+                                System.out.printf("\n\u001B[44m| %-15s %-20s %-20s %-20s %-25s %-15s %-30s %-30s %-30s %-20s %-23s |\u001B[0m",
+                                        "Ma BK", "Ten KH", "Ten NV", "Ma Phong", "Kieu thoi gian", "Thoi gian", "Nhan phong", "Tra Phong", "Ngay dat phong", "PTTT", "Tong tien(VND)");
                                 for (int i = 0; i < n; i++) {
                                     String key = listBooking[i].getPaymentMethod().toLowerCase();
                                     if (key.contentEquals(paymentMethodTemp.toLowerCase())) {
@@ -486,8 +488,8 @@ public class ListBooking implements TypeList {
                                 paymentMethodTemp = "the";
 
                                 printLine();
-                                System.out.printf("\n\u001B[44m| %-15s %-20s %-20s %-20s %-25s %-15s %-30s %-20s %-23s |\u001B[0m",
-                                        "Ma BK", "Ten KH", "Ten NV", "Ma Phong", "Kieu thoi gian", "Thoi gian", "Ngay dat phong", "PTTT", "Tong tien(VND)");
+                                System.out.printf("\n\u001B[44m| %-15s %-20s %-20s %-20s %-25s %-15s %-30s %-30s %-30s %-20s %-23s |\u001B[0m",
+                                        "Ma BK", "Ten KH", "Ten NV", "Ma Phong", "Kieu thoi gian", "Thoi gian", "Nhan phong", "Tra Phong", "Ngay dat phong", "PTTT", "Tong tien(VND)");
                                 for (int i = 0; i < n; i++) {
                                     String key = listBooking[i].getPaymentMethod().toLowerCase();
                                     if (key.contentEquals(paymentMethodTemp.toLowerCase())){
@@ -522,8 +524,8 @@ public class ListBooking implements TypeList {
     @Override
     public void display() {
         printLine();
-        System.out.printf("\n\u001B[44m| %-15s %-20s %-20s %-20s %-25s %-15s %-30s %-20s %-23s |\u001B[0m",
-                "Ma BK", "Ten KH", "Ten NV", "Ma Phong", "Kieu thoi gian", "Thoi gian", "Ngay dat phong", "PTTT", "Tong tien(VND)");
+        System.out.printf("\n\u001B[44m| %-15s %-20s %-20s %-20s %-25s %-15s %-30s %-30s %-30s %-20s %-23s |\u001B[0m",
+                "Ma BK", "Ten KH", "Ten NV", "Ma Phong", "Kieu thoi gian", "Thoi gian", "Nhan phong", "Tra Phong", "Ngay dat phong", "PTTT", "Tong tien(VND)");
         for (int i = 0; i < getN(); i++) {
             listBooking[i].output();
         }
@@ -544,8 +546,8 @@ public class ListBooking implements TypeList {
         } while (!matcher.find());
 
         printLine();
-        System.out.printf("\n\u001B[44m| %-15s %-20s %-20s %-20s %-25s %-15s %-30s %-20s %-23s |\u001B[0m",
-                "Ma BK", "Ten KH", "Ten NV", "Ma Phong", "Kieu thoi gian", "Thoi gian", "Ngay dat phong", "PTTT", "Tong tien(VND)");
+        System.out.printf("\n\u001B[44m| %-15s %-20s %-20s %-20s %-25s %-15s %-30s %-30s %-30s %-20s %-23s |\u001B[0m",
+                "Ma BK", "Ten KH", "Ten NV", "Ma Phong", "Kieu thoi gian", "Thoi gian", "Nhan phong", "Tra Phong", "Ngay dat phong", "PTTT", "Tong tien(VND)");
         for (int i = 0; i < n; i++) {
             String key = listBooking[i].getBookingId();
             if (key.contentEquals(temp)) {
